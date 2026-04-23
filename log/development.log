@@ -952,3 +952,1695 @@ Processing by AppointmentsController#index as HTML
 Completed 200 OK in 40ms (Views: 33.5ms | ActiveRecord: 4.0ms (11 queries, 3 cached) | GC: 2.2ms)
 
 
+Started GET "/" for 127.0.0.1 at 2026-04-23 09:27:40 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (11.0ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 1 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 2 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 3 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 43.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 5.2ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 70.3ms | GC: 0.0ms)
+Completed 200 OK in 96ms (Views: 51.0ms | ActiveRecord: 22.7ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/owners/1" for 127.0.0.1 at 2026-04-23 09:27:41 -0400
+Processing by OwnersController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mOwner Load (0.8ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/controllers/owners_controller.rb:7:in 'OwnersController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering owners/show.html.erb within layouts/application
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" = 1 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/show.html.erb:19
+  Rendered owners/show.html.erb within layouts/application (Duration: 12.3ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 14.8ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets" for 127.0.0.1 at 2026-04-23 09:27:48 -0400
+Processing by VetsController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ArgumentError (Reported error must be an Exception, got: #<SyntaxError:"/home/simon/Escritorio/Lab_5/app/models/vet.rb:4: syntax errors found\n  \e[2m2 | \e[m  has_many :appointments\n  \e[2m3 | \e[m  validates :first_name, :last_name, presence: true\n\e[1;31m> \e[m\e[2m4 | \e[m... format: { with: URI::MailTo::EMAIL_RE ...\n  \e[2m  | \e[m    \e[1;31m^~~~~~\e[m unexpected local variable or method, expecting end-of-input\n  \e[2m  | \e[m          \e[1;31m^\e[m unexpected ':', ignoring it\n  \e[2m  | \e[m          \e[1;31m^\e[m unexpected ':', expecting end-of-input\n  \e[2m5 | \e[m  validates :specialization, presence: true\n  \e[2m6 | \e[mend\n">)
+Caused by: SyntaxError (/home/simon/Escritorio/Lab_5/app/models/vet.rb:4: syntax errors found
+  [2m2 | [m  has_many :appointments
+  [2m3 | [m  validates :first_name, :last_name, presence: true
+[1;31m> [m[2m4 | [m... format: { with: URI::MailTo::EMAIL_RE ...
+  [2m  | [m    [1;31m^~~~~~[m unexpected local variable or method, expecting end-of-input
+  [2m  | [m          [1;31m^[m unexpected ':', ignoring it
+  [2m  | [m          [1;31m^[m unexpected ':', expecting end-of-input
+  [2m5 | [m  validates :specialization, presence: true
+  [2m6 | [mend
+)
+
+Information for: ArgumentError (Reported error must be an Exception, got: #<SyntaxError:"/home/simon/Escritorio/Lab_5/app/models/vet.rb:4: syntax errors found\n  \e[2m2 | \e[m  has_many :appointments\n  \e[2m3 | \e[m  validates :first_name, :last_name, presence: true\n\e[1;31m> \e[m\e[2m4 | \e[m... format: { with: URI::MailTo::EMAIL_RE ...\n  \e[2m  | \e[m    \e[1;31m^~~~~~\e[m unexpected local variable or method, expecting end-of-input\n  \e[2m  | \e[m          \e[1;31m^\e[m unexpected ':', ignoring it\n  \e[2m  | \e[m          \e[1;31m^\e[m unexpected ':', expecting end-of-input\n  \e[2m5 | \e[m  validates :specialization, presence: true\n  \e[2m6 | \e[mend\n">):
+  
+activesupport (8.1.3) lib/active_support/error_reporter.rb:235:in 'ActiveSupport::ErrorReporter#report'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:36:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+web-console (4.3.0) lib/web_console/middleware.rb:132:in 'WebConsole::Middleware#call_app'
+web-console (4.3.0) lib/web_console/middleware.rb:28:in 'block in WebConsole::Middleware#call'
+web-console (4.3.0) lib/web_console/middleware.rb:17:in 'Kernel#catch'
+web-console (4.3.0) lib/web_console/middleware.rb:17:in 'WebConsole::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+propshaft (1.3.1) lib/propshaft/quiet_assets.rb:11:in 'Propshaft::QuietAssets#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.6) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.6) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+propshaft (1.3.1) lib/propshaft/server.rb:37:in 'Propshaft::Server#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.6) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.1.3) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.0) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.0) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.0) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.0) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.0) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.0) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.0) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: SyntaxError (/home/simon/Escritorio/Lab_5/app/models/vet.rb:4: syntax errors found
+  [2m2 | [m  has_many :appointments
+  [2m3 | [m  validates :first_name, :last_name, presence: true
+[1;31m> [m[2m4 | [m... format: { with: URI::MailTo::EMAIL_RE ...
+  [2m  | [m    [1;31m^~~~~~[m unexpected local variable or method, expecting end-of-input
+  [2m  | [m          [1;31m^[m unexpected ':', ignoring it
+  [2m  | [m          [1;31m^[m unexpected ':', expecting end-of-input
+  [2m5 | [m  validates :specialization, presence: true
+  [2m6 | [mend
+):
+  
+app/models/vet.rb:4: syntax errors found
+app/controllers/vets_controller.rb:3:in 'VetsController#index'
+Started GET "/vets" for 127.0.0.1 at 2026-04-23 09:29:35 -0400
+Processing by VetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (1.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:14
+  Rendered vets/index.html.erb within layouts/application (Duration: 22.9ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | GC: 0.0ms)
+Completed 200 OK in 45ms (Views: 29.7ms | ActiveRecord: 6.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets/2" for 127.0.0.1 at 2026-04-23 09:29:36 -0400
+Processing by VetsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mVet Load (0.6ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 2 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:7:in 'VetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 2 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:21
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 3 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  Rendered vets/show.html.erb within layouts/application (Duration: 85.7ms | GC: 50.2ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 87.4ms | GC: 50.2ms)
+Completed 200 OK in 94ms (Views: 82.0ms | ActiveRecord: 6.8ms (4 queries, 0 cached) | GC: 50.2ms)
+
+
+Started GET "/vets/1" for 127.0.0.1 at 2026-04-23 09:29:37 -0400
+Processing by VetsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mVet Load (1.8ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:7:in 'VetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/show.html.erb within layouts/application
+  [1m[36mAppointment Load (1.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:21
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 2 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  Rendered vets/show.html.erb within layouts/application (Duration: 15.5ms | GC: 1.6ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | GC: 1.6ms)
+Completed 200 OK in 26ms (Views: 16.8ms | ActiveRecord: 4.2ms (5 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/pets/5" for 127.0.0.1 at 2026-04-23 09:29:41 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "5"}
+  [1m[36mPet Load (0.9ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 5 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (0.6ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 5 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (0.9ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 2 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (3.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 5 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (1.7ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (4.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 5 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  Rendered pets/show.html.erb within layouts/application (Duration: 69.9ms | GC: 5.7ms)
+  Rendered layouts/_flash.html.erb (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 76.2ms | GC: 5.7ms)
+Completed 200 OK in 118ms (Views: 65.4ms | ActiveRecord: 20.8ms (8 queries, 0 cached) | GC: 7.4ms)
+
+
+Started GET "/vets/1" for 127.0.0.1 at 2026-04-23 09:29:42 -0400
+Processing by VetsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mVet Load (0.7ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:7:in 'VetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:21
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 2 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  Rendered vets/show.html.erb within layouts/application (Duration: 9.8ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 11.3ms | ActiveRecord: 2.4ms (5 queries, 0 cached) | GC: 3.4ms)
+
+
+Started GET "/pets/5" for 127.0.0.1 at 2026-04-23 09:29:44 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "5"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 5 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (0.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 5 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 2 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 5 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 5 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  Rendered pets/show.html.erb within layouts/application (Duration: 11.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 13.5ms | ActiveRecord: 3.1ms (8 queries, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/pets/1" for 127.0.0.1 at 2026-04-23 09:29:45 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (1.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 1 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 1 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 1 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  Rendered pets/show.html.erb within layouts/application (Duration: 11.2ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | GC: 0.0ms)
+Completed 200 OK in 35ms (Views: 13.7ms | ActiveRecord: 4.2ms (8 queries, 0 cached) | GC: 5.2ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (2.2ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.5ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.9ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.7ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.5ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (2.8ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.9ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (2.1ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.5ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (2.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.9ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (2.1ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (2.5ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (2.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (2.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (2.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (2.0ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.8ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (2.3ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (2.0ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.9ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Load (0.7ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (2.3ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (2.1ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'juan@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.6ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 1', '2026-04-23 13:42:55.158879', 'juan@test.com', 'Juan', 'Perez', '123', '2026-04-23 13:42:55.158879') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'maria@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.3ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 2', '2026-04-23 13:42:55.169757', 'maria@test.com', 'Maria', 'Lopez', '456', '2026-04-23 13:42:55.169757') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'pedro@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.4ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 3', '2026-04-23 13:42:55.179917', 'pedro@test.com', 'Pedro', 'Gomez', '789', '2026-04-23 13:42:55.179917') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (2.7ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Labrador', '2026-04-23 13:42:55.189345', '2020-01-01', 'Firulais', 4, 'dog', '2026-04-23 13:42:55.189345', 25.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (2.4ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Siames', '2026-04-23 13:42:55.198772', '2021-01-01', 'Michi', 4, 'cat', '2026-04-23 13:42:55.198772', 5.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (2.4ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Mini Lop', '2026-04-23 13:42:55.207407', '2022-01-01', 'Bunny', 5, 'rabbit', '2026-04-23 13:42:55.207407', 2.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (2.6ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Bulldog', '2026-04-23 13:42:55.217888', '2019-01-01', 'Rocky', 6, 'dog', '2026-04-23 13:42:55.217888', 20.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (2.8ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Persa', '2026-04-23 13:42:55.269147', '2020-01-01', 'Luna', 5, 'cat', '2026-04-23 13:42:55.269147', 4.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'ana@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.4ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:42:55.282931', 'ana@vet.com', 'Ana', 'Martinez', '111', 'General', '2026-04-23 13:42:55.282931') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'luis@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.4ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:42:55.295380', 'luis@vet.com', 'Luis', 'Rojas', '222', 'Surgery', '2026-04-23 13:42:55.295380') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (4.3ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:42:55.302519', '2026-04-25 13:42:55.301180', 6, 'Checkup', 0, '2026-04-23 13:42:55.302519', 3) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (2.4ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:42:55.313729', '2026-04-24 13:42:55.312516', 7, 'Vaccination', 1, '2026-04-23 13:42:55.313729', 3) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (2.3ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:42:55.323864', '2026-04-21 13:42:55.322631', 8, 'Injury', 2, '2026-04-23 13:42:55.323864', 4) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (2.4ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:42:55.332234', '2026-04-18 13:42:55.331738', 9, 'Surgery', 2, '2026-04-23 13:42:55.332234', 4) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (2.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:42:55.341609', '2026-04-26 13:42:55.341039', 10, 'Skin issue', 3, '2026-04-23 13:42:55.341609', 3) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (4.2ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:42:55.348562', 7, '2026-04-23 13:42:55.349386', '1 dose', 'Rabies', 'Vaccine', 'OK', '2026-04-23 13:42:55.349386') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (2.1ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:42:55.358420', 8, '2026-04-23 13:42:55.359007', '50mg', 'Ibuprofen', 'Pain Relief', 'Monitor', '2026-04-23 13:42:55.359007') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (2.5ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:42:55.366617', 9, '2026-04-23 13:42:55.367642', 'Standard', 'Anesthesia', 'Surgery', 'Done', '2026-04-23 13:42:55.367642') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (4.5ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:42:55.375749', 8, '2026-04-23 13:42:55.376227', '-', 'None', 'Bandage', 'Applied', '2026-04-23 13:42:55.376227') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (2.0ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:42:55.385550', 7, '2026-04-23 13:42:55.386022', '-', 'None', 'Follow-up', 'Check later', '2026-04-23 13:42:55.386022') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+Started GET "/" for 127.0.0.1 at 2026-04-23 09:43:51 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (10.9ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 4 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 5 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 6 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 44.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 75.1ms | GC: 0.0ms)
+Completed 200 OK in 102ms (Views: 56.0ms | ActiveRecord: 22.2ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/owners/4" for 127.0.0.1 at 2026-04-23 09:43:52 -0400
+Processing by OwnersController#show as HTML
+  Parameters: {"id" => "4"}
+  [1m[36mOwner Load (0.8ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/controllers/owners_controller.rb:7:in 'OwnersController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering owners/show.html.erb within layouts/application
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" = 4 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/show.html.erb:19
+  Rendered owners/show.html.erb within layouts/application (Duration: 21.8ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | GC: 0.0ms)
+Completed 200 OK in 32ms (Views: 25.7ms | ActiveRecord: 1.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets/6" for 127.0.0.1 at 2026-04-23 09:43:53 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "6"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 6 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 6 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 3 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (0.6ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 6 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (0.5ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (1.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 6 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (0.6ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 3 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 6 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  Rendered pets/show.html.erb within layouts/application (Duration: 17.9ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | GC: 0.0ms)
+Completed 200 OK in 75ms (Views: 18.7ms | ActiveRecord: 14.1ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.7ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.8ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.4ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.4ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 8 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.5ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 9 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.4ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 10 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.9ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.7ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.6ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 8 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 8 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.6ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 9 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.6ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 10 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 10 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.9ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.5ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.6ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 8 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.6ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 9 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.6ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 10 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.8ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.6ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.5ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (1.8ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (1.7ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'juan@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.3ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 1', '2026-04-23 13:46:04.432048', 'juan@test.com', 'Juan', 'Perez', '123', '2026-04-23 13:46:04.432048') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'maria@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 2', '2026-04-23 13:46:04.440685', 'maria@test.com', 'Maria', 'Lopez', '456', '2026-04-23 13:46:04.440685') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'pedro@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 3', '2026-04-23 13:46:04.448670', 'pedro@test.com', 'Pedro', 'Gomez', '789', '2026-04-23 13:46:04.448670') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (2.0ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Labrador', '2026-04-23 13:46:04.455419', '2020-01-01', 'Firulais', 7, 'dog', '2026-04-23 13:46:04.455419', 25.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.9ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Siames', '2026-04-23 13:46:04.462669', '2021-01-01', 'Michi', 7, 'cat', '2026-04-23 13:46:04.462669', 5.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.9ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Mini Lop', '2026-04-23 13:46:04.469702', '2022-01-01', 'Bunny', 8, 'rabbit', '2026-04-23 13:46:04.469702', 2.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.8ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Bulldog', '2026-04-23 13:46:04.476641', '2019-01-01', 'Rocky', 9, 'dog', '2026-04-23 13:46:04.476641', 20.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (2.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Persa', '2026-04-23 13:46:04.506383', '2020-01-01', 'Luna', 8, 'cat', '2026-04-23 13:46:04.506383', 4.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'ana@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.3ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:46:04.517591', 'ana@vet.com', 'Ana', 'Martinez', '111', 'General', '2026-04-23 13:46:04.517591') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'luis@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:46:04.526780', 'luis@vet.com', 'Luis', 'Rojas', '222', 'Surgery', '2026-04-23 13:46:04.526780') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (3.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:46:04.532213', '2026-04-21 13:46:04.531292', 13, 'Injury', 2, '2026-04-23 13:46:04.532213', 6) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.7ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:46:04.540117', '2026-04-18 13:46:04.539639', 14, 'Surgery', 2, '2026-04-23 13:46:04.540117', 6) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.7ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:46:04.546184', '2026-04-25 13:46:04.545846', 11, 'Checkup', 0, '2026-04-23 13:46:04.546184', 5) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (2.8ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:46:04.552321', '2026-04-24 13:46:04.551959', 12, 'Vaccination', 1, '2026-04-23 13:46:04.552321', 5) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.7ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:46:04.559750', '2026-04-26 13:46:04.559360', 15, 'Skin issue', 3, '2026-04-23 13:46:04.559750', 5) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (2.8ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:46:04.565525', 14, '2026-04-23 13:46:04.566086', '1 dose', 'Rabies', 'Vaccine', 'OK', '2026-04-23 13:46:04.566086') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.6ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:46:04.572984', 11, '2026-04-23 13:46:04.573301', '50mg', 'Ibuprofen', 'Pain Relief', 'Monitor', '2026-04-23 13:46:04.573301') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.6ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:46:04.579024', 12, '2026-04-23 13:46:04.579283', 'Standard', 'Anesthesia', 'Surgery', 'Done', '2026-04-23 13:46:04.579283') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (3.0ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:46:04.584919', 11, '2026-04-23 13:46:04.585171', '-', 'None', 'Bandage', 'Applied', '2026-04-23 13:46:04.585171') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.5ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:46:04.592304', 14, '2026-04-23 13:46:04.592606', '-', 'None', 'Follow-up', 'Check later', '2026-04-23 13:46:04.592606') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.9ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.4ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 11 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.4ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 12 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.2ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 13 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.2ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 14 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.2ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 15 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 11 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 11 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 12 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 12 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.1ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 13 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 13 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 14 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 14 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.9ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 15 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 15 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 11 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.0ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 12 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 13 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.5ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 14 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.0ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 15 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.0ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (0.8ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 8 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (0.8ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 9 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Load (0.2ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (1.0ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (1.0ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'juan@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.3ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 1', '2026-04-23 13:48:22.571386', 'juan@test.com', 'Juan', 'Perez', '123', '2026-04-23 13:48:22.571386') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'maria@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 2', '2026-04-23 13:48:22.577279', 'maria@test.com', 'Maria', 'Lopez', '456', '2026-04-23 13:48:22.577279') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'pedro@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 3', '2026-04-23 13:48:22.582968', 'pedro@test.com', 'Pedro', 'Gomez', '789', '2026-04-23 13:48:22.582968') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.1ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Labrador', '2026-04-23 13:48:22.587533', '2020-01-01', 'Firulais', 10, 'dog', '2026-04-23 13:48:22.587533', 25.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (0.9ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Siames', '2026-04-23 13:48:22.594120', '2021-01-01', 'Michi', 10, 'cat', '2026-04-23 13:48:22.594120', 5.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.1ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Mini Lop', '2026-04-23 13:48:22.599263', '2022-01-01', 'Bunny', 11, 'rabbit', '2026-04-23 13:48:22.599263', 2.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.1ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Bulldog', '2026-04-23 13:48:22.604587', '2019-01-01', 'Rocky', 12, 'dog', '2026-04-23 13:48:22.604587', 20.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Persa', '2026-04-23 13:48:22.626288', '2020-01-01', 'Luna', 11, 'cat', '2026-04-23 13:48:22.626288', 4.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'ana@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.3ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:48:22.633609', 'ana@vet.com', 'Ana', 'Martinez', '111', 'General', '2026-04-23 13:48:22.633609') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'luis@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:48:22.639531', 'luis@vet.com', 'Luis', 'Rojas', '222', 'Surgery', '2026-04-23 13:48:22.639531') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 16 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.7ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 17 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.7ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 18 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (2.0ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 19 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.9ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 20 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (0.9ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 10 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (0.8ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 11 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (0.8ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 12 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (0.8ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (0.7ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 8 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'juan@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 1', '2026-04-23 13:48:36.385370', 'juan@test.com', 'Juan', 'Perez', '123', '2026-04-23 13:48:36.385370') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'maria@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 2', '2026-04-23 13:48:36.391670', 'maria@test.com', 'Maria', 'Lopez', '456', '2026-04-23 13:48:36.391670') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'pedro@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 3', '2026-04-23 13:48:36.397560', 'pedro@test.com', 'Pedro', 'Gomez', '789', '2026-04-23 13:48:36.397560') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Labrador', '2026-04-23 13:48:36.404322', '2020-01-01', 'Firulais', 13, 'dog', '2026-04-23 13:48:36.404322', 25.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (0.9ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Siames', '2026-04-23 13:48:36.408748', '2021-01-01', 'Michi', 13, 'cat', '2026-04-23 13:48:36.408748', 5.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Mini Lop', '2026-04-23 13:48:36.413895', '2022-01-01', 'Bunny', 14, 'rabbit', '2026-04-23 13:48:36.413895', 2.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Bulldog', '2026-04-23 13:48:36.419168', '2019-01-01', 'Rocky', 15, 'dog', '2026-04-23 13:48:36.419168', 20.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Persa', '2026-04-23 13:48:36.424165', '2020-01-01', 'Luna', 14, 'cat', '2026-04-23 13:48:36.424165', 4.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'ana@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:48:36.431563', 'ana@vet.com', 'Ana', 'Martinez', '111', 'General', '2026-04-23 13:48:36.431563') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'luis@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:48:36.437238', 'luis@vet.com', 'Luis', 'Rojas', '222', 'Surgery', '2026-04-23 13:48:36.437238') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.0ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:48:36.444620', '2026-04-21 13:48:36.440828', 23, 'Injury', 2, '2026-04-23 13:48:36.444620', 10) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.9ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:48:36.450120', '2026-04-18 13:48:36.449654', 24, 'Surgery', 2, '2026-04-23 13:48:36.450120', 10) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.8ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:48:36.454699', '2026-04-25 13:48:36.454502', 21, 'Checkup', 0, '2026-04-23 13:48:36.454699', 9) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.9ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:48:36.459199', '2026-04-24 13:48:36.458840', 22, 'Vaccination', 1, '2026-04-23 13:48:36.459199', 9) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.9ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:48:36.463791', '2026-04-26 13:48:36.463194', 25, 'Skin issue', 3, '2026-04-23 13:48:36.463791', 9) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.8ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:48:36.468952', '2026-03-29 13:48:36.468691', 23, 'Injury', 2, '2026-04-23 13:48:36.468952', 10) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.8ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:48:36.473998', '2025-12-14 13:48:36.473315', 24, 'Surgery', 2, '2026-04-23 13:48:36.473998', 10) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.0ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:48:36.478354', 19, '2026-04-23 13:48:36.482030', '1 dose', 'Rabies', 'Vaccine', 'OK', '2026-04-23 13:48:36.482030') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (0.9ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:48:36.486594', 16, '2026-04-23 13:48:36.486883', '50mg', 'Ibuprofen', 'Pain Relief', 'Monitor', '2026-04-23 13:48:36.486883') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (0.9ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:48:36.508394', 17, '2026-04-23 13:48:36.508814', 'Standard', 'Anesthesia', 'Surgery', 'Done', '2026-04-23 13:48:36.508814') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (0.9ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:48:36.513650', 16, '2026-04-23 13:48:36.513800', '-', 'None', 'Bandage', 'Applied', '2026-04-23 13:48:36.513800') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (0.8ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:48:36.518723', 19, '2026-04-23 13:48:36.518936', '-', 'None', 'Follow-up', 'Check later', '2026-04-23 13:48:36.518936') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+Started GET "/" for 127.0.0.1 at 2026-04-23 09:48:53 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (13.0ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 13 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 14 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 15 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 46.9ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 5.7ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 74.9ms | GC: 0.0ms)
+Completed 200 OK in 102ms (Views: 51.6ms | ActiveRecord: 26.5ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/owners/13" for 127.0.0.1 at 2026-04-23 09:48:54 -0400
+Processing by OwnersController#show as HTML
+  Parameters: {"id" => "13"}
+  [1m[36mOwner Load (0.6ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 13 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/controllers/owners_controller.rb:7:in 'OwnersController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering owners/show.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" = 13 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/show.html.erb:19
+  Rendered owners/show.html.erb within layouts/application (Duration: 14.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 18.2ms | ActiveRecord: 1.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets" for 127.0.0.1 at 2026-04-23 09:48:55 -0400
+Processing by PetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  [1m[36mOwner Load (0.9ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (13, 14, 15) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  Rendered pets/index.html.erb within layouts/application (Duration: 12.7ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.9ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 18.4ms | ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets/23" for 127.0.0.1 at 2026-04-23 09:48:56 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "23"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 23 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 23 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (1.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 10 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (2.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (16, 21) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (4.0ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 14 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (1.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 23 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 23 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 10 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 10 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  Rendered pets/show.html.erb within layouts/application (Duration: 33.2ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | GC: 0.0ms)
+Completed 200 OK in 108ms (Views: 30.6ms | ActiveRecord: 18.2ms (9 queries, 1 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.0ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 16 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (0.8ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 17 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.1ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 18 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.9ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 19 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.3ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 20 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 16 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 16 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 17 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 17 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.9ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 18 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 18 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 19 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 19 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 20 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 20 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.9ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 21 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 21 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.8ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 22 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 22 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 21 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (0.8ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 22 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.6ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 23 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.8ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 24 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (2.0ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 25 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.7ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.6ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 13 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.9ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 14 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.4ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 15 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Load (0.8ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (1.4ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 9 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (1.1ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 10 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'juan@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 1', '2026-04-23 13:50:05.364243', 'juan@test.com', 'Juan', 'Perez', '123', '2026-04-23 13:50:05.364243') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'maria@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 2', '2026-04-23 13:50:05.370156', 'maria@test.com', 'Maria', 'Lopez', '456', '2026-04-23 13:50:05.370156') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'pedro@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 3', '2026-04-23 13:50:05.376439', 'pedro@test.com', 'Pedro', 'Gomez', '789', '2026-04-23 13:50:05.376439') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.9ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Labrador', '2026-04-23 13:50:05.383118', '2020-01-01', 'Firulais', 16, 'dog', '2026-04-23 13:50:05.383118', 25.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Siames', '2026-04-23 13:50:05.390755', '2021-01-01', 'Michi', 16, 'cat', '2026-04-23 13:50:05.390755', 5.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Mini Lop', '2026-04-23 13:50:05.419070', '2022-01-01', 'Bunny', 17, 'rabbit', '2026-04-23 13:50:05.419070', 2.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.1ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Bulldog', '2026-04-23 13:50:05.425438', '2019-01-01', 'Rocky', 18, 'dog', '2026-04-23 13:50:05.425438', 20.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Persa', '2026-04-23 13:50:05.432602', '2020-01-01', 'Luna', 17, 'cat', '2026-04-23 13:50:05.432602', 4.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'ana@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.4ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:50:05.439863', 'ana@vet.com', 'Ana', 'Martinez', '111', 'General', '2026-04-23 13:50:05.439863') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'luis@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:50:05.447042', 'luis@vet.com', 'Luis', 'Rojas', '222', 'Surgery', '2026-04-23 13:50:05.447042') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (3.0ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:50:05.451453', '2026-04-21 13:50:05.450484', 28, 'Injury', 2, '2026-04-23 13:50:05.451453', 12) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.0ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:50:05.458921', '2026-04-18 13:50:05.458631', 29, 'Surgery', 2, '2026-04-23 13:50:05.458921', 12) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:50:05.463504', '2026-04-25 13:50:05.463071', 26, 'Checkup', 0, '2026-04-23 13:50:05.463504', 11) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.1ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:50:05.469845', '2026-04-24 13:50:05.469458', 27, 'Vaccination', 1, '2026-04-23 13:50:05.469845', 11) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.5ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:50:05.475987', '2026-04-26 13:50:05.475351', 30, 'Skin issue', 3, '2026-04-23 13:50:05.475987', 11) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.3ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:50:05.481545', '2026-03-29 13:50:05.480987', 28, 'Injury', 2, '2026-04-23 13:50:05.481545', 12) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.5ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:50:05.489127', '2025-12-14 13:50:05.488500', 29, 'Surgery', 2, '2026-04-23 13:50:05.489127', 12) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.0ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:50:05.494985', '2026-05-01 13:50:05.494420', 28, 'Injury', 2, '2026-04-23 13:50:05.494985', 12) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.2ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:50:05.499075', 26, '2026-04-23 13:50:05.499838', '1 dose', 'Rabies', 'Vaccine', 'OK', '2026-04-23 13:50:05.499838') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (2.0ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:50:05.505414', 23, '2026-04-23 13:50:05.506119', '50mg', 'Ibuprofen', 'Pain Relief', 'Monitor', '2026-04-23 13:50:05.506119') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.0ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:50:05.513824', 24, '2026-04-23 13:50:05.514197', 'Standard', 'Anesthesia', 'Surgery', 'Done', '2026-04-23 13:50:05.514197') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.3ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:50:05.518158', 23, '2026-04-23 13:50:05.518428', '-', 'None', 'Bandage', 'Applied', '2026-04-23 13:50:05.518428') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.5ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:50:05.523000', 26, '2026-04-23 13:50:05.523145', '-', 'None', 'Follow-up', 'Check later', '2026-04-23 13:50:05.523145') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+Started GET "/pets/23" for 127.0.0.1 at 2026-04-23 09:50:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "23"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 23 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+Completed 404 Not Found in 49ms (ActiveRecord: 22.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Pet with 'id'="23"):
+  
+app/controllers/pets_controller.rb:7:in 'PetsController#show'
+Started GET "/favicon.ico" for 127.0.0.1 at 2026-04-23 09:50:12 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/pets/23" for 127.0.0.1 at 2026-04-23 09:50:14 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "23"}
+  [1m[36mPet Load (1.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 23 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+Completed 404 Not Found in 11ms (ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 3.5ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Pet with 'id'="23"):
+  
+app/controllers/pets_controller.rb:7:in 'PetsController#show'
+Started GET "/" for 127.0.0.1 at 2026-04-23 09:50:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (10.8ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 16 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 17 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 18 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 42.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 5.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 69.1ms | GC: 0.0ms)
+Completed 200 OK in 95ms (Views: 50.1ms | ActiveRecord: 22.3ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets" for 127.0.0.1 at 2026-04-23 09:50:39 -0400
+Processing by VetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.8ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:14
+  Rendered vets/index.html.erb within layouts/application (Duration: 14.4ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.0ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 20.8ms | ActiveRecord: 3.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets" for 127.0.0.1 at 2026-04-23 09:50:39 -0400
+Processing by PetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  [1m[36mOwner Load (0.8ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (16, 17, 18) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  Rendered pets/index.html.erb within layouts/application (Duration: 23.2ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.0ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 1.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets" for 127.0.0.1 at 2026-04-23 09:50:41 -0400
+Processing by VetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:14
+  Rendered vets/index.html.erb within layouts/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets" for 127.0.0.1 at 2026-04-23 09:50:41 -0400
+Processing by PetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  [1m[36mOwner Load (0.5ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (16, 17, 18) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  Rendered pets/index.html.erb within layouts/application (Duration: 7.9ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 11.5ms | ActiveRecord: 1.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets/28" for 127.0.0.1 at 2026-04-23 09:50:42 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "28"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 28 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (1.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (23, 28, 30) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (1.6ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 17 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (0.6ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  Rendered pets/show.html.erb within layouts/application (Duration: 25.7ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.0ms | GC: 0.0ms)
+Completed 200 OK in 75ms (Views: 26.2ms | ActiveRecord: 10.7ms (10 queries, 2 cached) | GC: 0.0ms)
+
+
+Started GET "/pets/28" for 127.0.0.1 at 2026-04-23 09:52:05 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "28"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 28 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (0.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (23, 28, 30) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (0.6ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 17 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (1.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  [1m[36mCACHE Vet Load (0.1ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.1ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  Rendered pets/show.html.erb within layouts/application (Duration: 27.1ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 1.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.8ms | GC: 0.0ms)
+Completed 200 OK in 47ms (Views: 28.1ms | ActiveRecord: 5.2ms (10 queries, 2 cached) | GC: 0.0ms)
+
+
+Started GET "/pets/28" for 127.0.0.1 at 2026-04-23 09:52:05 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "28"}
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 28 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (0.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (23, 28, 30) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (0.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 17 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  Rendered pets/show.html.erb within layouts/application (Duration: 10.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 11.8ms | ActiveRecord: 2.6ms (10 queries, 2 cached) | GC: 0.0ms)
+
+
+Started GET "/vets/12" for 127.0.0.1 at 2026-04-23 09:52:07 -0400
+Processing by VetsController#show as HTML
+  Parameters: {"id" => "12"}
+  [1m[36mVet Load (1.1ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:7:in 'VetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/show.html.erb within layouts/application
+  [1m[36mAppointment Load (1.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 12 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:21
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 28 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 29 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:24
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 28 LIMIT 1[0m
+  ↳ app/views/vets/show.html.erb:24
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 29 LIMIT 1[0m
+  ↳ app/views/vets/show.html.erb:24
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 28 LIMIT 1[0m
+  ↳ app/views/vets/show.html.erb:24
+  Rendered vets/show.html.erb within layouts/application (Duration: 39.7ms | GC: 5.2ms)
+  Rendered layouts/_flash.html.erb (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 45.3ms | GC: 5.2ms)
+Completed 200 OK in 54ms (Views: 43.3ms | ActiveRecord: 4.4ms (7 queries, 3 cached) | GC: 5.2ms)
+
+
+Started GET "/pets/28" for 127.0.0.1 at 2026-04-23 09:52:18 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "28"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 28 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (0.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (23, 28, 30) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (0.8ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 17 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  Rendered pets/show.html.erb within layouts/application (Duration: 21.5ms | GC: 4.2ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.7ms | GC: 4.2ms)
+Completed 200 OK in 36ms (Views: 22.5ms | ActiveRecord: 3.8ms (10 queries, 2 cached) | GC: 4.2ms)
+
+
+Started GET "/vets" for 127.0.0.1 at 2026-04-23 09:52:20 -0400
+Processing by VetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.6ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:14
+  Rendered vets/index.html.erb within layouts/application (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/owners" for 127.0.0.1 at 2026-04-23 09:52:23 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.6ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 16 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 17 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 18 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 18.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.6ms | GC: 1.8ms)
+Completed 200 OK in 30ms (Views: 23.4ms | ActiveRecord: 3.9ms (4 queries, 0 cached) | GC: 1.8ms)
+
+
+Started GET "/pets" for 127.0.0.1 at 2026-04-23 09:52:23 -0400
+Processing by PetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  [1m[36mOwner Load (1.2ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (16, 17, 18) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  Rendered pets/index.html.erb within layouts/application (Duration: 7.7ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 9.9ms | ActiveRecord: 1.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets/27" for 127.0.0.1 at 2026-04-23 09:52:28 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "27"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 27 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 27 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 11 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (0.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 26 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (1.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 16 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 27 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 11 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 27 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  Rendered pets/show.html.erb within layouts/application (Duration: 13.6ms | GC: 0.4ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | GC: 0.4ms)
+Completed 200 OK in 29ms (Views: 15.0ms | ActiveRecord: 4.4ms (8 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/pets/28" for 127.0.0.1 at 2026-04-23 09:52:30 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "28"}
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 28 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (0.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (23, 28, 30) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (0.5ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 17 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 28 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 12 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  Rendered pets/show.html.erb within layouts/application (Duration: 20.2ms | GC: 1.4ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.6ms | GC: 1.4ms)
+Completed 200 OK in 36ms (Views: 22.4ms | ActiveRecord: 3.5ms (10 queries, 2 cached) | GC: 2.0ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.7ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.5ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 21 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.4ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 22 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.5ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 23 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.3ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 24 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (1.4ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 25 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 23 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 23 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 24 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 24 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 25 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 25 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 26 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 26 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 27 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 27 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 28 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 28 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 29 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 29 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 30 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 30 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 26 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.6ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 27 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 28 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 29 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (1.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 30 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.0ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 16 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.1ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 17 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (1.1ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 18 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (0.9ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 11 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Destroy (1.1ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 12 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'juan@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 1', '2026-04-23 13:53:19.462477', 'juan@test.com', 'Juan', 'Perez', '123', '2026-04-23 13:53:19.462477') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'maria@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.3ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 2', '2026-04-23 13:53:19.469568', 'maria@test.com', 'Maria', 'Lopez', '456', '2026-04-23 13:53:19.469568') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'pedro@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 3', '2026-04-23 13:53:19.476459', 'pedro@test.com', 'Pedro', 'Gomez', '789', '2026-04-23 13:53:19.476459') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Labrador', '2026-04-23 13:53:19.482072', '2020-01-01', 'Firulais', 19, 'dog', '2026-04-23 13:53:19.482072', 25.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Siames', '2026-04-23 13:53:19.488826', '2021-01-01', 'Michi', 19, 'cat', '2026-04-23 13:53:19.488826', 5.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.4ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Mini Lop', '2026-04-23 13:53:19.496011', '2022-01-01', 'Bunny', 20, 'rabbit', '2026-04-23 13:53:19.496011', 2.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Bulldog', '2026-04-23 13:53:19.501747', '2019-01-01', 'Rocky', 21, 'dog', '2026-04-23 13:53:19.501747', 20.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Persa', '2026-04-23 13:53:19.523052', '2020-01-01', 'Luna', 20, 'cat', '2026-04-23 13:53:19.523052', 4.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'ana@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:53:19.531519', 'ana@vet.com', 'Ana', 'Martinez', '111', 'General', '2026-04-23 13:53:19.531519') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'luis@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-04-23 13:53:19.537843', 'luis@vet.com', 'Luis', 'Rojas', '222', 'Surgery', '2026-04-23 13:53:19.537843') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (2.1ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:53:19.544117', '2026-04-21 13:53:19.542641', 33, 'Injury', 2, '2026-04-23 13:53:19.544117', 14) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:53:19.550673', '2026-04-18 13:53:19.550157', 34, 'Surgery', 2, '2026-04-23 13:53:19.550673', 14) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:53:19.556330', '2026-04-25 13:53:19.555786', 31, 'Checkup', 0, '2026-04-23 13:53:19.556330', 13) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.1ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:53:19.562799', '2026-04-24 13:53:19.562313', 32, 'Vaccination', 1, '2026-04-23 13:53:19.562799', 13) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.1ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:53:19.568805', '2026-04-26 13:53:19.568226', 35, 'Skin issue', 3, '2026-04-23 13:53:19.568805', 13) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:53:19.575512', '2026-03-29 13:53:19.574980', 33, 'Injury', 2, '2026-04-23 13:53:19.575512', 14) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.1ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:53:19.582299', '2025-12-14 13:53:19.581788', 34, 'Surgery', 2, '2026-04-23 13:53:19.582299', 14) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.1ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-04-23 13:53:19.588042', '2026-05-01 13:53:19.587422', 33, 'Injury', 0, '2026-04-23 13:53:19.588042', 14) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.2ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:53:19.592962', 34, '2026-04-23 13:53:19.593618', '1 dose', 'Rabies', 'Vaccine', 'OK', '2026-04-23 13:53:19.593618') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.1ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:53:19.599818', 31, '2026-04-23 13:53:19.600267', '50mg', 'Ibuprofen', 'Pain Relief', 'Monitor', '2026-04-23 13:53:19.600267') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.1ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:53:19.604994', 32, '2026-04-23 13:53:19.605428', 'Standard', 'Anesthesia', 'Surgery', 'Done', '2026-04-23 13:53:19.605428') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (2.2ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:53:19.610452', 31, '2026-04-23 13:53:19.610949', '-', 'None', 'Bandage', 'Applied', '2026-04-23 13:53:19.610949') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.3ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ('2026-04-23 13:53:19.617273', 34, '2026-04-23 13:53:19.617719', '-', 'None', 'Follow-up', 'Check later', '2026-04-23 13:53:19.617719') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+Started GET "/" for 127.0.0.1 at 2026-04-23 09:53:30 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (10.0ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 19 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 20 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 21 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 33.7ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 3.7ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 50.6ms | GC: 0.0ms)
+Completed 200 OK in 71ms (Views: 33.5ms | ActiveRecord: 19.9ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-04-23 09:53:30 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 19 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 20 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 21 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 3.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.5ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/owners" for 127.0.0.1 at 2026-04-23 09:53:32 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (1.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 19 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 20 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 21 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 11.0ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 13.3ms | ActiveRecord: 2.4ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets" for 127.0.0.1 at 2026-04-23 09:53:32 -0400
+Processing by PetsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  [1m[36mOwner Load (1.2ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (19, 20, 21) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:16
+  Rendered pets/index.html.erb within layouts/application (Duration: 31.4ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 36.6ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 36.7ms | ActiveRecord: 1.9ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets/33" for 127.0.0.1 at 2026-04-23 09:53:34 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "33"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 33 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 33 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mVet Load (0.6ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 14 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  [1m[36mTreatment Load (1.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (31, 36, 38) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:7:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mOwner Load (0.8ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 20 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:11
+  [1m[36mAppointment Load (1.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 33 AND (date > '2026-04-23') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:27
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 14 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:32
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 33 AND (date < '2026-04-23') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:55
+  [1m[36mCACHE Vet Load (0.2ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 14 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 14 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:60
+  Rendered pets/show.html.erb within layouts/application (Duration: 36.3ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.0ms | GC: 0.0ms)
+Completed 200 OK in 102ms (Views: 37.4ms | ActiveRecord: 17.1ms (10 queries, 2 cached) | GC: 0.0ms)
+
+
+Started GET "/owners/20" for 127.0.0.1 at 2026-04-23 09:53:48 -0400
+Processing by OwnersController#show as HTML
+  Parameters: {"id" => "20"}
+  [1m[36mOwner Load (0.7ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 20 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/controllers/owners_controller.rb:7:in 'OwnersController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering owners/show.html.erb within layouts/application
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" = 20 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/show.html.erb:19
+  Rendered owners/show.html.erb within layouts/application (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
