@@ -439,3 +439,42 @@ Processing by PetsController#show as HTML
 Completed 200 OK in 23ms (Views: 11.1ms | ActiveRecord: 3.4ms (8 queries, 0 cached) | GC: 0.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2026-04-23 09:13:20 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (7.1ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 1 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 2 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 3 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 26.1ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 39.3ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 28.9ms | ActiveRecord: 13.2ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-04-23 09:14:45 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 1 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 2 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 3 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 8.4ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 9.3ms | ActiveRecord: 1.4ms (4 queries, 0 cached) | GC: 0.0ms)
+
+
