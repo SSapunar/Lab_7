@@ -3469,3 +3469,502 @@ TreatmentTest: test_valid_treatment_saves
   [1m[36mTreatment Create (0.4ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["administered_at", "2026-04-23 15:04:58.126834"], ["appointment_id", 980190967], ["created_at", "2026-04-23 15:04:58.127030"], ["dosage", nil], ["medication", nil], ["name", "Vaccine"], ["notes", nil], ["updated_at", "2026-04-23 15:04:58.127030"]]
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public[0m
+  [1m[35m (194.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "lab_03_s_sapunar_1_test"[0m
+  [1m[35m (40.5ms)[0m  [1m[35mCREATE DATABASE "lab_03_s_sapunar_1_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (7.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" SCHEMA pg_catalog[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE[0m
+  [1m[35m (24.4ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "date" timestamp(6), "pet_id" bigint NOT NULL, "reason" character varying, "status" integer, "updated_at" timestamp(6) NOT NULL, "vet_id" bigint NOT NULL)[0m
+  [1m[35m (14.2ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_pet_id" ON "appointments" ("pet_id")[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_vet_id" ON "appointments" ("vet_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "owners" CASCADE[0m
+  [1m[35m (15.4ms)[0m  [1m[35mCREATE TABLE "owners" ("id" bigserial primary key, "address" text, "created_at" timestamp(6) NOT NULL, "email" character varying, "first_name" character varying, "last_name" character varying, "phone" character varying, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets" CASCADE[0m
+  [1m[35m (15.1ms)[0m  [1m[35mCREATE TABLE "pets" ("id" bigserial primary key, "breed" character varying, "created_at" timestamp(6) NOT NULL, "date_of_birth" date, "name" character varying, "owner_id" bigint NOT NULL, "species" character varying, "updated_at" timestamp(6) NOT NULL, "weight" decimal)[0m
+  [1m[35m (8.3ms)[0m  [1m[35mCREATE INDEX "index_pets_on_owner_id" ON "pets" ("owner_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "treatments" CASCADE[0m
+  [1m[35m (16.1ms)[0m  [1m[35mCREATE TABLE "treatments" ("id" bigserial primary key, "administered_at" timestamp(6), "appointment_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "dosage" character varying, "medication" character varying, "name" character varying, "notes" text, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE INDEX "index_treatments_on_appointment_id" ON "treatments" ("appointment_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "vets" CASCADE[0m
+  [1m[35m (15.6ms)[0m  [1m[35mCREATE TABLE "vets" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "email" character varying, "first_name" character varying, "last_name" character varying, "phone" character varying, "specialization" character varying, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_0f1df792b9"
+FOREIGN KEY ("pet_id")
+  REFERENCES "pets" ("id")
+[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_a77d9b33fe"
+FOREIGN KEY ("vet_id")
+  REFERENCES "vets" ("id")
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mALTER TABLE "pets" ADD CONSTRAINT "fk_rails_1ff5d16ccb"
+FOREIGN KEY ("owner_id")
+  REFERENCES "owners" ("id")
+[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "treatments" ADD CONSTRAINT "fk_rails_2024053d76"
+FOREIGN KEY ("appointment_id")
+  REFERENCES "appointments" ("id")
+[0m
+  [1m[35m (15.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260409131022)[0m
+  [1m[35m (1.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260409130742),
+(20260409130736),
+(20260409130731),
+(20260409130718);[0m
+  [1m[35m (14.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'test', '2026-04-23 16:02:27.869200', '2026-04-23 16:02:27.869208') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '3d79895e7463efcf5d480741d72cd8090362dd25', '2026-04-23 16:02:27.872546', '2026-04-23 16:02:27.872548') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "schema_migrations" DISABLE TRIGGER ALL;ALTER TABLE "pets" DISABLE TRIGGER ALL;ALTER TABLE "appointments" DISABLE TRIGGER ALL;ALTER TABLE "vets" DISABLE TRIGGER ALL;ALTER TABLE "owners" DISABLE TRIGGER ALL;ALTER TABLE "treatments" DISABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" DISABLE TRIGGER ALL[0m
+  [1m[36mFixtures Load (1.3ms)[0m  [1m[31mDELETE FROM "appointments";
+DELETE FROM "owners";
+DELETE FROM "pets";
+DELETE FROM "treatments";
+DELETE FROM "vets";
+INSERT INTO "appointments" ("id", "created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES (980190962, '2026-04-23 16:02:27.941108', '2026-05-01 10:00:00', 980190962, 'Checkup', 0, '2026-04-23 16:02:27.941108', 980190962), (298486374, '2026-04-23 16:02:27.941108', '2026-01-15 10:00:00', 298486374, 'Vaccination', 2, '2026-04-23 16:02:27.941108', 298486374);
+INSERT INTO "owners" ("id", "address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES (980190962, 'Calle 1', '2026-04-23 16:02:27.950841', 'tetojuan@test.com', 'Juan', 'Perez', '123456', '2026-04-23 16:02:27.950841'), (298486374, 'Calle 2', '2026-04-23 16:02:27.950841', 'tetomaria@test.com', 'Maria', 'Lopez', '789012', '2026-04-23 16:02:27.950841');
+INSERT INTO "pets" ("id", "breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES (980190962, 'Labrador', '2026-04-23 16:02:27.951857', '2020-01-01', 'Firulais', 980190962, 'dog', '2026-04-23 16:02:27.951857', 25.0), (298486374, 'Siames', '2026-04-23 16:02:27.951857', '2021-06-15', 'Michi', 298486374, 'cat', '2026-04-23 16:02:27.951857', 5.0);
+INSERT INTO "treatments" ("id", "administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES (980190962, '2026-05-01 10:30:00', 980190962, '2026-04-23 16:02:27.952508', '1 dose', 'Rabies', 'Vaccine', 'All good', '2026-04-23 16:02:27.952508'), (298486374, '2026-01-15 11:00:00', 298486374, '2026-04-23 16:02:27.952508', '50mg', 'Ibuprofen', 'Pain Relief', 'Monitor closely', '2026-04-23 16:02:27.952508');
+INSERT INTO "vets" ("id", "created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES (980190962, '2026-04-23 16:02:27.954696', 'topoana@vet.com', 'Ana', 'Martinez', '111222', 'General', '2026-04-23 16:02:27.954696'), (298486374, '2026-04-23 16:02:27.954696', 'topoluis@vet.com', 'Luis', 'Rojas', '333444', 'Surgery', '2026-04-23 16:02:27.954696')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "schema_migrations" ENABLE TRIGGER ALL;ALTER TABLE "pets" ENABLE TRIGGER ALL;ALTER TABLE "appointments" ENABLE TRIGGER ALL;ALTER TABLE "vets" ENABLE TRIGGER ALL;ALTER TABLE "owners" ENABLE TRIGGER ALL;ALTER TABLE "treatments" ENABLE TRIGGER ALL;ALTER TABLE "ar_internal_metadata" ENABLE TRIGGER ALL[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mdo $$
+  declare r record;
+BEGIN
+FOR r IN (
+  SELECT FORMAT(
+    'UPDATE pg_catalog.pg_constraint SET convalidated=false WHERE conname = ''%1$I'' AND connamespace::regnamespace = ''%2$I''::regnamespace; ALTER TABLE %2$I.%3$I VALIDATE CONSTRAINT %1$I;',
+    constraint_name,
+    table_schema,
+    table_name
+  ) AS constraint_check
+  FROM information_schema.table_constraints WHERE constraint_type = 'FOREIGN KEY'
+)
+  LOOP
+    EXECUTE (r.constraint_check);
+  END LOOP;
+END;
+$$;
+[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+VetTest: test_email_is_normalized_before_save
+---------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:27.990234"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:27.990234"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+VetTest: test_invalid_without_first_name
+----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+VetTest: test_invalid_with_bad_email_format
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------
+VetTest: test_invalid_without_email
+-----------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------
+VetTest: test_email_must_be_unique
+----------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.000407"], ["email", "[FILTERED]"], ["first_name", "A"], ["last_name", "B"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.000407"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+VetTest: test_invalid_without_specialization
+--------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------
+VetTest: test_invalid_without_last_name
+---------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------
+VetTest: test_valid_vet_saves
+-----------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.007169"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.007169"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+PetTest: test_date_of_birth_cannot_be_in_the_future
+---------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.011231"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.011231"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------
+PetTest: test_invalid_without_owner
+-----------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.016172"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.016172"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------
+PetTest: test_invalid_without_name
+----------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.017979"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.017979"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+PetTest: test_weight_must_be_greater_than_0
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.019575"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.019575"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------------
+PetTest: test_invalid_without_weight
+------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.021064"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.021064"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------------
+PetTest: test_invalid_without_date_of_birth
+-------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.022700"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.022700"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------
+PetTest: test_invalid_species
+-----------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.024256"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.024256"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------
+PetTest: test_valid_pet_saves
+-----------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.025889"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.025889"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.026960"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190970], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.026960"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+PetTest: test_invalid_without_species
+-------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.029044"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.029044"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+PetTest: test_name_is_capitalized_before_save
+---------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.031059"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.031059"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.031629"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190972], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.031629"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------
+OwnerTest: test_email_is_normalized_before_save
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.033107"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.033107"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+OwnerTest: test_invalid_without_first_name
+------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+OwnerTest: test_invalid_with_bad_email_format
+---------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+OwnerTest: test_invalid_without_email
+-------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------------
+OwnerTest: test_email_must_be_unique
+------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.037755"], ["email", "[FILTERED]"], ["first_name", "A"], ["last_name", "B"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.037755"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-------------------------------------
+OwnerTest: test_invalid_without_phone
+-------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+OwnerTest: test_invalid_without_last_name
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------
+OwnerTest: test_valid_owner_saves
+---------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.041716"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.041716"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+------------------------------------------
+AppointmentTest: test_invalid_without_date
+------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.043770"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.043770"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.044609"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190976], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.044609"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.045786"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.045786"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+AppointmentTest: test_invalid_without_vet
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.050021"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.050021"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.050854"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190977], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.050854"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.051891"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.051891"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+AppointmentTest: test_invalid_without_reason
+--------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.053382"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.053382"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.053974"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190978], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.053974"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.055098"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.055098"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+--------------------------------------------
+AppointmentTest: test_invalid_without_status
+--------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.057116"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.057116"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.057854"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190979], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.057854"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.059224"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.059224"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+AppointmentTest: test_invalid_without_pet
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.061268"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.061268"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.062061"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190980], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.062061"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.063044"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.063044"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------
+AppointmentTest: test_valid_appointment_saves
+---------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.064585"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.064585"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.065161"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190981], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.065161"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.066104"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.066104"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAppointment Create (0.3ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.066760"], ["date", "2026-04-23 16:02:28.066505"], ["pet_id", 980190970], ["reason", "Checkup"], ["status", 0], ["updated_at", "2026-04-23 16:02:28.066760"], ["vet_id", 980190971]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+---------------------------------------------------
+TreatmentTest: test_invalid_without_administered_at
+---------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.068749"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.068749"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.1ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.069366"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190982], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.069366"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.070278"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.070278"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAppointment Create (0.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.070850"], ["date", "2026-04-23 16:02:28.070683"], ["pet_id", 980190971], ["reason", "Checkup"], ["status", 0], ["updated_at", "2026-04-23 16:02:28.070850"], ["vet_id", 980190972]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+----------------------------------------
+TreatmentTest: test_invalid_without_name
+----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.075779"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.075779"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.076850"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190983], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.076850"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.077978"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.077978"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAppointment Create (0.3ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.078622"], ["date", "2026-04-23 16:02:28.078423"], ["pet_id", 980190972], ["reason", "Checkup"], ["status", 0], ["updated_at", "2026-04-23 16:02:28.078622"], ["vet_id", 980190973]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------------
+TreatmentTest: test_invalid_without_appointment
+-----------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.080643"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.080643"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.2ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.081311"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190984], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.081311"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.082331"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.082331"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAppointment Create (0.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.082898"], ["date", "2026-04-23 16:02:28.082727"], ["pet_id", 980190973], ["reason", "Checkup"], ["status", 0], ["updated_at", "2026-04-23 16:02:28.082898"], ["vet_id", 980190974]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+-----------------------------------------
+TreatmentTest: test_valid_treatment_saves
+-----------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mOwner Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["address", nil], ["created_at", "2026-04-23 16:02:28.084676"], ["email", "[FILTERED]"], ["first_name", "Juan"], ["last_name", "Perez"], ["phone", "123"], ["updated_at", "2026-04-23 16:02:28.084676"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mPet Create (0.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["breed", nil], ["created_at", "2026-04-23 16:02:28.085274"], ["date_of_birth", "2026-04-23"], ["name", "Firulais"], ["owner_id", 980190985], ["species", "dog"], ["updated_at", "2026-04-23 16:02:28.085274"], ["weight", "10.0"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mVet Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = $1 LIMIT $2[0m  [["email", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.086580"], ["email", "[FILTERED]"], ["first_name", "Ana"], ["last_name", "Lopez"], ["phone", "123"], ["specialization", "General"], ["updated_at", "2026-04-23 16:02:28.086580"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mAppointment Create (0.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["created_at", "2026-04-23 16:02:28.087172"], ["date", "2026-04-23 16:02:28.087003"], ["pet_id", 980190974], ["reason", "Checkup"], ["status", 0], ["updated_at", "2026-04-23 16:02:28.087172"], ["vet_id", 980190975]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTreatment Create (0.2ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "notes", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["administered_at", "2026-04-23 16:02:28.087637"], ["appointment_id", 980190967], ["created_at", "2026-04-23 16:02:28.087866"], ["dosage", nil], ["medication", nil], ["name", "Vaccine"], ["notes", nil], ["updated_at", "2026-04-23 16:02:28.087866"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
