@@ -2644,3 +2644,420 @@ Processing by OwnersController#show as HTML
 Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2026-04-23 10:47:12 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (9.1ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (19, 20, 21) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 19 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 20 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 21 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 37.7ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 53.0ms | GC: 0.0ms)
+Completed 200 OK in 74ms (Views: 38.0ms | ActiveRecord: 17.9ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets" for 127.0.0.1 at 2026-04-23 10:47:13 -0400
+Processing by VetsController#index as HTML
+  [1m[36mVet Pluck (1.5ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:3:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  [1m[36mAppointment Load (2.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" IN (13, 14) /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  Rendered vets/index.html.erb within layouts/application (Duration: 52.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 59.0ms | GC: 0.0ms)
+Completed 200 OK in 76ms (Views: 50.4ms | ActiveRecord: 13.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-04-23 10:47:14 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:16
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (33, 34, 31, 32, 35) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:16
+  [1m[36mVet Load (0.6ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (14, 13) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:16
+  Rendered appointments/index.html.erb within layouts/application (Duration: 16.8ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.6ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 23.1ms | ActiveRecord: 1.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets?specialization=Surgery" for 127.0.0.1 at 2026-04-23 10:47:15 -0400
+Processing by VetsController#index as HTML
+  Parameters: {"specialization" => "Surgery"}
+  [1m[36mVet Pluck (0.6ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:3:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.8ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."specialization" = 'Surgery' /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 14 /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  Rendered vets/index.html.erb within layouts/application (Duration: 10.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.2ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 13.9ms | ActiveRecord: 1.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets?specialization=General" for 127.0.0.1 at 2026-04-23 10:47:16 -0400
+Processing by VetsController#index as HTML
+  Parameters: {"specialization" => "General"}
+  [1m[36mVet Pluck (0.7ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:3:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."specialization" = 'General' /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  [1m[36mAppointment Load (1.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 13 /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  Rendered vets/index.html.erb within layouts/application (Duration: 12.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 14.1ms | ActiveRecord: 2.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets?specialization=Surgery" for 127.0.0.1 at 2026-04-23 10:47:16 -0400
+Processing by VetsController#index as HTML
+  Parameters: {"specialization" => "Surgery"}
+  [1m[36mVet Pluck (0.7ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:3:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."specialization" = 'Surgery' /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 14 /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  Rendered vets/index.html.erb within layouts/application (Duration: 9.0ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 14.2ms | ActiveRecord: 1.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets" for 127.0.0.1 at 2026-04-23 10:47:17 -0400
+Processing by VetsController#index as HTML
+  [1m[36mVet Pluck (0.4ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:3:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.2ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" IN (13, 14) /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  Rendered vets/index.html.erb within layouts/application (Duration: 4.0ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets?specialization=Surgery" for 127.0.0.1 at 2026-04-23 10:47:22 -0400
+Processing by VetsController#index as HTML
+  Parameters: {"specialization" => "Surgery"}
+  [1m[36mVet Pluck (1.6ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:3:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."specialization" = 'Surgery' /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 14 /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  Rendered vets/index.html.erb within layouts/application (Duration: 6.9ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | GC: 0.0ms)
+Completed 200 OK in 17ms (Views: 9.3ms | ActiveRecord: 2.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-04-23 10:48:21 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:16
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (33, 34, 31, 32, 35) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:16
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (14, 13) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:16
+  Rendered appointments/index.html.erb within layouts/application (Duration: 16.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.6ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets" for 127.0.0.1 at 2026-04-23 10:48:21 -0400
+Processing by VetsController#index as HTML
+  [1m[36mVet Pluck (1.5ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:3:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.6ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" IN (13, 14) /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  Rendered vets/index.html.erb within layouts/application (Duration: 7.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.1ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 13.1ms | ActiveRecord: 2.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/owners" for 127.0.0.1 at 2026-04-23 10:48:23 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.6ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (19, 20, 21) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 19 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 20 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 21 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 21.2ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 24.0ms | ActiveRecord: 2.9ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets" for 127.0.0.1 at 2026-04-23 10:48:23 -0400
+Processing by PetsController#index as HTML
+  [1m[36mPet Pluck (0.5ms)[0m  [1m[34mSELECT DISTINCT "pets"."species" FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:3:in 'PetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  [1m[36mOwner Load (0.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (19, 20, 21) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  Rendered pets/index.html.erb within layouts/application (Duration: 7.2ms | GC: 1.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | GC: 1.0ms)
+Completed 200 OK in 13ms (Views: 9.5ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/pets?species=rabbit" for 127.0.0.1 at 2026-04-23 10:48:25 -0400
+Processing by PetsController#index as HTML
+  Parameters: {"species" => "rabbit"}
+  [1m[36mPet Pluck (1.8ms)[0m  [1m[34mSELECT DISTINCT "pets"."species" FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:3:in 'PetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."species" = 'rabbit' /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  [1m[36mOwner Load (1.1ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 20 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  Rendered pets/index.html.erb within layouts/application (Duration: 13.2ms | GC: 2.9ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | GC: 2.9ms)
+Completed 200 OK in 27ms (Views: 17.0ms | ActiveRecord: 3.4ms (3 queries, 0 cached) | GC: 2.9ms)
+
+
+Started GET "/pets?species=cat" for 127.0.0.1 at 2026-04-23 10:48:25 -0400
+Processing by PetsController#index as HTML
+  Parameters: {"species" => "cat"}
+  [1m[36mPet Pluck (1.3ms)[0m  [1m[34mSELECT DISTINCT "pets"."species" FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:3:in 'PetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."species" = 'cat' /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  [1m[36mOwner Load (0.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (19, 20) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.8ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 13.2ms | ActiveRecord: 2.1ms (3 queries, 0 cached) | GC: 5.2ms)
+
+
+Started GET "/pets?species=dog" for 127.0.0.1 at 2026-04-23 10:48:26 -0400
+Processing by PetsController#index as HTML
+  Parameters: {"species" => "dog"}
+  [1m[36mPet Pluck (0.7ms)[0m  [1m[34mSELECT DISTINCT "pets"."species" FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:3:in 'PetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."species" = 'dog' /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  [1m[36mOwner Load (0.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (19, 21) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  Rendered pets/index.html.erb within layouts/application (Duration: 5.2ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 10.8ms | ActiveRecord: 1.5ms (3 queries, 0 cached) | GC: 3.9ms)
+
+
+Started GET "/pets?species=dog" for 127.0.0.1 at 2026-04-23 10:48:32 -0400
+Processing by PetsController#index as HTML
+  Parameters: {"species" => "dog"}
+  [1m[36mPet Pluck (0.7ms)[0m  [1m[34mSELECT DISTINCT "pets"."species" FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:3:in 'PetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."species" = 'dog' /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (19, 21) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  Rendered pets/index.html.erb within layouts/application (Duration: 9.0ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | GC: 2.5ms)
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 1.8ms (3 queries, 0 cached) | GC: 2.5ms)
+
+
+Started GET "/pets?species=rabbit" for 127.0.0.1 at 2026-04-23 10:48:33 -0400
+Processing by PetsController#index as HTML
+  Parameters: {"species" => "rabbit"}
+  [1m[36mPet Pluck (1.5ms)[0m  [1m[34mSELECT DISTINCT "pets"."species" FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:3:in 'PetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."species" = 'rabbit' /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  [1m[36mOwner Load (1.1ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 20 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  Rendered pets/index.html.erb within layouts/application (Duration: 11.2ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 14.5ms | ActiveRecord: 3.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets?species=cat" for 127.0.0.1 at 2026-04-23 10:48:33 -0400
+Processing by PetsController#index as HTML
+  Parameters: {"species" => "cat"}
+  [1m[36mPet Pluck (0.7ms)[0m  [1m[34mSELECT DISTINCT "pets"."species" FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:3:in 'PetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."species" = 'cat' /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  [1m[36mOwner Load (0.5ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (19, 20) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:24
+  Rendered pets/index.html.erb within layouts/application (Duration: 9.7ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 16.1ms | ActiveRecord: 1.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/owners" for 127.0.0.1 at 2026-04-23 10:48:34 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.6ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (19, 20, 21) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 19 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 20 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 21 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 20.1ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.4ms | GC: 1.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.1ms | GC: 1.1ms)
+Completed 200 OK in 28ms (Views: 22.3ms | ActiveRecord: 3.7ms (5 queries, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/owners" for 127.0.0.1 at 2026-04-23 10:48:36 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.6ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Load (0.9ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (19, 20, 21) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:15
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 19 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 20 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  [1m[36mPet Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 21 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:22
+  Rendered owners/index.html.erb within layouts/application (Duration: 20.7ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 1.0ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | GC: 0.7ms)
+Completed 200 OK in 29ms (Views: 23.7ms | ActiveRecord: 3.6ms (5 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/owners/19" for 127.0.0.1 at 2026-04-23 10:48:36 -0400
+Processing by OwnersController#show as HTML
+  Parameters: {"id" => "19"}
+  [1m[36mOwner Load (0.7ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 19 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/controllers/owners_controller.rb:7:in 'OwnersController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering owners/show.html.erb within layouts/application
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" = 19 /*action='show',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/show.html.erb:19
+  Rendered owners/show.html.erb within layouts/application (Duration: 6.3ms | GC: 0.5ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | GC: 0.5ms)
+Completed 200 OK in 15ms (Views: 9.7ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/vets" for 127.0.0.1 at 2026-04-23 10:48:37 -0400
+Processing by VetsController#index as HTML
+  [1m[36mVet Pluck (1.6ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:3:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (1.1ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" IN (13, 14) /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:22
+  Rendered vets/index.html.erb within layouts/application (Duration: 16.1ms | GC: 4.6ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.3ms | GC: 4.6ms)
+Completed 200 OK in 32ms (Views: 22.1ms | ActiveRecord: 6.5ms (3 queries, 0 cached) | GC: 7.9ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-04-23 10:48:37 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:16
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (33, 34, 31, 32, 35) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:16
+  [1m[36mVet Load (0.9ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (14, 13) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:16
+  Rendered appointments/index.html.erb within layouts/application (Duration: 13.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 18.0ms | ActiveRecord: 1.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+

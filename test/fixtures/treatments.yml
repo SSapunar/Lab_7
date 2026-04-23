@@ -2,16 +2,16 @@
 
 one:
   appointment: one
-  name: MyString
-  medication: MyString
-  dosage: MyString
-  notes: MyText
-  administered_at: 2026-04-09 09:10:22
+  name: Vaccine
+  medication: Rabies
+  dosage: 1 dose
+  notes: All good
+  administered_at: 2026-05-01 10:30:00
 
 two:
   appointment: two
-  name: MyString
-  medication: MyString
-  dosage: MyString
-  notes: MyText
-  administered_at: 2026-04-09 09:10:22
+  name: Pain Relief
+  medication: Ibuprofen
+  dosage: 50mg
+  notes: Monitor closely
+  administered_at: 2026-01-15 11:00:00

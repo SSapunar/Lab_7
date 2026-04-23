@@ -3,13 +3,13 @@
 one:
   pet: one
   vet: one
-  date: 2026-04-09 09:07:42
-  reason: MyString
-  status: 1
+  date: 2026-05-01 10:00:00
+  reason: Checkup
+  status: scheduled
 
 two:
   pet: two
   vet: two
-  date: 2026-04-09 09:07:42
-  reason: MyString
-  status: 1
+  date: 2026-01-15 10:00:00
+  reason: Vaccination
+  status: completed

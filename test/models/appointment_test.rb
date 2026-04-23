@@ -15,10 +15,28 @@ class AppointmentTest < ActiveSupport::TestCase
   test "invalid without date" do
     appt = Appointment.new(reason: "Checkup", status: :scheduled, pet: @pet, vet: @vet)
     assert_not appt.save
+    assert_includes appt.errors[:date], "can't be blank"
+  end
+
+  test "invalid without reason" do
+    appt = Appointment.new(date: Time.now, status: :scheduled, pet: @pet, vet: @vet)
+    assert_not appt.save
+    assert_includes appt.errors[:reason], "can't be blank"
   end
 
   test "invalid without status" do
     appt = Appointment.new(date: Time.now, reason: "Checkup", pet: @pet, vet: @vet)
+    assert_not appt.save
+    assert_includes appt.errors[:status], "can't be blank"
+  end
+
+  test "invalid without pet" do
+    appt = Appointment.new(date: Time.now, reason: "Checkup", status: :scheduled, vet: @vet)
+    assert_not appt.save
+  end
+
+  test "invalid without vet" do
+    appt = Appointment.new(date: Time.now, reason: "Checkup", status: :scheduled, pet: @pet)
     assert_not appt.save
   end
 end

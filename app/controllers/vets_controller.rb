@@ -1,6 +1,8 @@
 class VetsController < ApplicationController
   def index
-    @vets = Vet.all
+    @specializations = Vet.distinct.pluck(:specialization)
+    @specialization = params[:specialization]
+    @vets = @specialization.present? ? Vet.by_specialization(@specialization).includes(:appointments) : Vet.includes(:appointments)
   end
 
   def show

@@ -6,6 +6,7 @@ class Pet < ApplicationRecord
   validates :date_of_birth, presence: true
   validate :date_not_in_future
   validates :weight, presence: true, numericality: { greater_than: 0 }
+  scope :by_species, ->(species) { where(species: species) }
   private
   def date_not_in_future
     if date_of_birth.present? && date_of_birth > Date.today

@@ -1,5 +1,13 @@
 <h1 class="mb-4">Pets</h1>
 
+<%# Filtro por especie %>
+<div class="mb-3">
+  <%= link_to "All", pets_path, class: "btn btn-sm btn-primary me-1" %>
+  <% @species_list.each do |s| %>
+    <%= link_to s.capitalize, pets_path(species: s), class: "btn btn-sm btn-outline-secondary me-1" %>
+  <% end %>
+</div>
+
 <table class="table table-striped table-hover">
   <thead>
     <tr>

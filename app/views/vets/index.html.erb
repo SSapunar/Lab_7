@@ -1,5 +1,13 @@
 <h1>Vets</h1>
 
+<%# Filtro por especialización %>
+<div class="mb-3">
+  <%= link_to "All", vets_path, class: "btn btn-sm btn-primary me-1" %>
+  <% @specializations.each do |spec| %>
+    <%= link_to spec, vets_path(specialization: spec), class: "btn btn-sm btn-outline-secondary me-1" %>
+  <% end %>
+</div>
+
 <table class="table table-striped table-hover">
   <thead>
     <tr>

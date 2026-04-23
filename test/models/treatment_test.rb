@@ -16,5 +16,17 @@ class TreatmentTest < ActiveSupport::TestCase
   test "invalid without name" do
     treatment = Treatment.new(administered_at: Time.now, appointment: @appointment)
     assert_not treatment.save
+    assert_includes treatment.errors[:name], "can't be blank"
+  end
+
+  test "invalid without administered_at" do
+    treatment = Treatment.new(name: "Vaccine", appointment: @appointment)
+    assert_not treatment.save
+    assert_includes treatment.errors[:administered_at], "can't be blank"
+  end
+
+  test "invalid without appointment" do
+    treatment = Treatment.new(name: "Vaccine", administered_at: Time.now)
+    assert_not treatment.save
   end
 end

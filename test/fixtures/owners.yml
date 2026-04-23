@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  address: MyText
+  first_name: Juan
+  last_name: Perez
+  email: tetojuan@test.com   
+  phone: "123456"
+  address: Calle 1
 
 two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone: MyString
-  address: MyText
+  first_name: Maria
+  last_name: Lopez
+  email: tetomaria@test.com  # ← cambiar esto
+  phone: "789012"
+  address: Calle 2
