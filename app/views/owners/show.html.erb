@@ -10,7 +10,10 @@
 <p><strong>Phone:</strong> <%= @owner.phone %></p>
 <p><strong>Address:</strong> <%= @owner.address %></p>
 
-<h2>Pets</h2>
+<div class="d-flex justify-content-between align-items-center mb-2">
+  <h2>Pets</h2>
+  <%= link_to "Add Pet", new_pet_path(owner_id: @owner.id), class: "btn btn-primary" %>
+</div>
 <table class="table table-striped table-hover">
   <thead>
     <tr>

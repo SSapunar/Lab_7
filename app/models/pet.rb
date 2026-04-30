@@ -1,6 +1,6 @@
 class Pet < ApplicationRecord
-  belongs_to :owner
-  has_many :appointments
+  belongs_to :owner, dependent: :destroy
+  has_many :appointments, dependent: :destroy
   validates :name, presence: true
   validates :species, presence: true, inclusion: { in: %w[dog cat rabbit bird reptile other] }
   validates :date_of_birth, presence: true
