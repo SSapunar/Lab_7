@@ -1,6 +1,8 @@
-<h1>Vets</h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1>Vets</h1>
+  <%= link_to "New Vet", new_vet_path, class: "btn btn-primary" %>
+</div>
 
-<%# Filtro por especialización %>
 <div class="mb-3">
   <%= link_to "All", vets_path, class: "btn btn-sm btn-primary me-1" %>
   <% @specializations.each do |spec| %>
@@ -14,17 +16,19 @@
       <th>Full Name</th>
       <th>Email</th>
       <th>Specialization</th>
+      <th>Actions</th>
     </tr>
   </thead>
-
   <tbody>
     <% @vets.each do |vet| %>
       <tr>
-        <td>
-          <%= link_to "#{vet.first_name} #{vet.last_name}", vet %>
-        </td>
+        <td><%= link_to "#{vet.first_name} #{vet.last_name}", vet %></td>
         <td><%= vet.email %></td>
         <td><%= vet.specialization %></td>
+        <td>
+          <%= link_to "Edit", edit_vet_path(vet), class: "btn btn-sm btn-warning me-1" %>
+          <%= button_to "Delete", vet, method: :delete, class: "btn btn-sm btn-danger", data: { turbo_confirm: "Are you sure?" } %>
+        </td>
       </tr>
     <% end %>
   </tbody>

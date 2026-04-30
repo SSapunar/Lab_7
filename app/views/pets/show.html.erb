@@ -1,17 +1,18 @@
-<h1><%= @pet.name %></h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1><%= @pet.name %></h1>
+  <div>
+    <%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-warning me-1" %>
+    <%= button_to "Delete", @pet, method: :delete, class: "btn btn-danger", data: { turbo_confirm: "Are you sure?" } %>
+  </div>
+</div>
 
 <p><strong>Species:</strong> <%= @pet.species %></p>
 <p><strong>Breed:</strong> <%= @pet.breed %></p>
 <p><strong>Date of Birth:</strong> <%= @pet.date_of_birth.strftime("%B %d, %Y") %></p>
 <p><strong>Weight:</strong> <%= @pet.weight %></p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= link_to "#{@pet.owner.first_name} #{@pet.owner.last_name}", @pet.owner %>
-</p>
+<p><strong>Owner:</strong> <%= link_to "#{@pet.owner.first_name} #{@pet.owner.last_name}", @pet.owner %></p>
 
 <h2>Upcoming Appointments</h2>
-
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -21,16 +22,11 @@
       <th>Status</th>
     </tr>
   </thead>
-
   <tbody>
     <% @pet.appointments.upcoming.each do |appointment| %>
       <tr>
         <td><%= appointment.date.strftime("%B %d, %Y") %></td>
-        
-        <td>
-          <%= link_to "#{appointment.vet.first_name} #{appointment.vet.last_name}", appointment.vet %>
-        </td>
-        
+        <td><%= link_to "#{appointment.vet.first_name} #{appointment.vet.last_name}", appointment.vet %></td>
         <td><%= appointment.reason %></td>
         <td><%= appointment.status %></td>
       </tr>
@@ -39,7 +35,6 @@
 </table>
 
 <h2>Past Appointments</h2>
-
 <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -49,16 +44,11 @@
       <th>Status</th>
     </tr>
   </thead>
-
   <tbody>
     <% @pet.appointments.past.each do |appointment| %>
       <tr>
         <td><%= appointment.date.strftime("%B %d, %Y") %></td>
-        
-        <td>
-          <%= link_to "#{appointment.vet.first_name} #{appointment.vet.last_name}", appointment.vet %>
-        </td>
-        
+        <td><%= link_to "#{appointment.vet.first_name} #{appointment.vet.last_name}", appointment.vet %></td>
         <td><%= appointment.reason %></td>
         <td><%= appointment.status %></td>
       </tr>
