@@ -1,0 +1,6 @@
+<div class="container mt-4">
+  <h1>Edit Pet</h1>
+  <%= form_with(model: @pet) do |form| %>
+    <%= render "form", form: form, pet: @pet %>
+  <% end %>
+</div>

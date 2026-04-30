@@ -1,0 +1,28 @@
+<%= render "shared/error_messages", object: appointment %>
+
+<div class="mb-3">
+  <%= form.label :date, class: "form-label" %>
+  <%= form.datetime_field :date, class: "form-control" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :reason, class: "form-label" %>
+  <%= form.text_area :reason, class: "form-control", rows: 3 %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :status, class: "form-label" %>
+  <%= form.select :status, Appointment.statuses.keys.map { |s| [s.humanize, s] }, { include_blank: "Select status" }, class: "form-select" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :pet_id, "Pet", class: "form-label" %>
+  <%= form.collection_select :pet_id, Pet.order(:name), :id, :name, { include_blank: "Select pet" }, class: "form-select" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :vet_id, "Vet", class: "form-label" %>
+  <%= form.collection_select :vet_id, Vet.order(:last_name), :id, :last_name, { include_blank: "Select vet" }, class: "form-select" %>
+</div>
+
+<%= form.submit class: "btn btn-primary" %>

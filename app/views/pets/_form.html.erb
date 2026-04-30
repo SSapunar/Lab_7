@@ -1,0 +1,33 @@
+<%= render "shared/error_messages", object: pet %>
+
+<div class="mb-3">
+  <%= form.label :name, class: "form-label" %>
+  <%= form.text_field :name, class: "form-control" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :species, class: "form-label" %>
+  <%= form.select :species, %w[dog cat rabbit bird reptile other], { include_blank: "Select species" }, class: "form-select" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :breed, class: "form-label" %>
+  <%= form.text_field :breed, class: "form-control" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :date_of_birth, class: "form-label" %>
+  <%= form.date_field :date_of_birth, class: "form-control" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :weight, class: "form-label" %>
+  <%= form.number_field :weight, step: 0.1, class: "form-control" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :owner_id, "Owner", class: "form-label" %>
+  <%= form.collection_select :owner_id, Owner.order(:last_name), :id, :last_name, { include_blank: "Select owner" }, class: "form-select" %>
+</div>
+
+<%= form.submit class: "btn btn-primary" %>

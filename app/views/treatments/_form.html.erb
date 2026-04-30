@@ -1,0 +1,28 @@
+<%= render "shared/error_messages", object: treatment %>
+
+<div class="mb-3">
+  <%= form.label :name, class: "form-label" %>
+  <%= form.text_field :name, class: "form-control" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :medication, class: "form-label" %>
+  <%= form.text_field :medication, class: "form-control" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :dosage, class: "form-label" %>
+  <%= form.text_field :dosage, class: "form-control" %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :notes, class: "form-label" %>
+  <%= form.text_area :notes, class: "form-control", rows: 3 %>
+</div>
+
+<div class="mb-3">
+  <%= form.label :administered_at, class: "form-label" %>
+  <%= form.datetime_field :administered_at, class: "form-control" %>
+</div>
+
+<%= form.submit class: "btn btn-primary" %>
