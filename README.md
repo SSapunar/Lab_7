@@ -33,4 +33,4 @@ brew install vips
 
 ## checks
 
-I add `<script>alert(1)</script>` inside of text treatment.
+I add `<script>alert(1)</script>` inside of text treatment and no alerts were triggered.
