@@ -10396,3 +10396,879 @@ Processing by PetsController#edit as HTML
 Completed 200 OK in 15ms (Views: 11.9ms | ActiveRecord: 1.7ms (4 queries, 0 cached) | GC: 1.4ms)
 
 
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE DATABASE "lab_03_s_sapunar_1_development" ENCODING = 'unicode' /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE DATABASE "lab_03_s_sapunar_1_test" ENCODING = 'unicode' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" SCHEMA pg_catalog /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (10.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (17.6ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "body" text, "created_at" timestamp(6) NOT NULL, "name" character varying NOT NULL, "record_id" bigint NOT NULL, "record_type" character varying NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (13.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (4.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (16.5ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "name" character varying NOT NULL, "record_id" bigint NOT NULL, "record_type" character varying NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (13.6ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (21.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "byte_size" bigint NOT NULL, "checksum" character varying, "content_type" character varying, "created_at" timestamp(6) NOT NULL, "filename" character varying NOT NULL, "key" character varying NOT NULL, "metadata" text, "service_name" character varying NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (10.7ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (18.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (15.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.8ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (21.8ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "date" timestamp(6), "pet_id" bigint NOT NULL, "reason" character varying, "status" integer, "updated_at" timestamp(6) NOT NULL, "vet_id" bigint NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (13.8ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_pet_id" ON "appointments" ("pet_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_vet_id" ON "appointments" ("vet_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "owners" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (26.0ms)[0m  [1m[35mCREATE TABLE "owners" ("id" bigserial primary key, "address" text, "created_at" timestamp(6) NOT NULL, "email" character varying, "first_name" character varying, "last_name" character varying, "phone" character varying, "updated_at" timestamp(6) NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (23.0ms)[0m  [1m[35mCREATE TABLE "pets" ("id" bigserial primary key, "breed" character varying, "created_at" timestamp(6) NOT NULL, "date_of_birth" date, "name" character varying, "owner_id" bigint NOT NULL, "species" character varying, "updated_at" timestamp(6) NOT NULL, "weight" decimal) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (14.1ms)[0m  [1m[35mCREATE INDEX "index_pets_on_owner_id" ON "pets" ("owner_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "treatments" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (22.0ms)[0m  [1m[35mCREATE TABLE "treatments" ("id" bigserial primary key, "administered_at" timestamp(6), "appointment_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "dosage" character varying, "medication" character varying, "name" character varying, "updated_at" timestamp(6) NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (12.6ms)[0m  [1m[35mCREATE INDEX "index_treatments_on_appointment_id" ON "treatments" ("appointment_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "vets" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (21.3ms)[0m  [1m[35mCREATE TABLE "vets" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "email" character varying, "first_name" character varying, "last_name" character varying, "phone" character varying, "specialization" character varying, "updated_at" timestamp(6) NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (4.9ms)[0m  [1m[35mALTER TABLE "active_storage_variant_records" ADD CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_0f1df792b9"
+FOREIGN KEY ("pet_id")
+  REFERENCES "pets" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_a77d9b33fe"
+FOREIGN KEY ("vet_id")
+  REFERENCES "vets" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "pets" ADD CONSTRAINT "fk_rails_1ff5d16ccb"
+FOREIGN KEY ("owner_id")
+  REFERENCES "owners" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (2.3ms)[0m  [1m[35mALTER TABLE "treatments" ADD CONSTRAINT "fk_rails_2024053d76"
+FOREIGN KEY ("appointment_id")
+  REFERENCES "appointments" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (30.2ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql" SCHEMA pg_catalog /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "action_text_rich_texts" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (31.9ms)[0m  [1m[35mCREATE TABLE "action_text_rich_texts" ("id" bigserial primary key, "body" text, "created_at" timestamp(6) NOT NULL, "name" character varying NOT NULL, "record_id" bigint NOT NULL, "record_type" character varying NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (9.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_action_text_rich_texts_uniqueness" ON "action_text_rich_texts" ("record_type", "record_id", "name") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (27.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "name" character varying NOT NULL, "record_id" bigint NOT NULL, "record_type" character varying NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (14.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (19.6ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "byte_size" bigint NOT NULL, "checksum" character varying, "content_type" character varying, "created_at" timestamp(6) NOT NULL, "filename" character varying NOT NULL, "key" character varying NOT NULL, "metadata" text, "service_name" character varying NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (15.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (21.0ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "appointments" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (21.3ms)[0m  [1m[35mCREATE TABLE "appointments" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "date" timestamp(6), "pet_id" bigint NOT NULL, "reason" character varying, "status" integer, "updated_at" timestamp(6) NOT NULL, "vet_id" bigint NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (9.0ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_pet_id" ON "appointments" ("pet_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (16.7ms)[0m  [1m[35mCREATE INDEX "index_appointments_on_vet_id" ON "appointments" ("vet_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "owners" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (16.6ms)[0m  [1m[35mCREATE TABLE "owners" ("id" bigserial primary key, "address" text, "created_at" timestamp(6) NOT NULL, "email" character varying, "first_name" character varying, "last_name" character varying, "phone" character varying, "updated_at" timestamp(6) NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "pets" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (28.2ms)[0m  [1m[35mCREATE TABLE "pets" ("id" bigserial primary key, "breed" character varying, "created_at" timestamp(6) NOT NULL, "date_of_birth" date, "name" character varying, "owner_id" bigint NOT NULL, "species" character varying, "updated_at" timestamp(6) NOT NULL, "weight" decimal) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (8.9ms)[0m  [1m[35mCREATE INDEX "index_pets_on_owner_id" ON "pets" ("owner_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "treatments" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (26.4ms)[0m  [1m[35mCREATE TABLE "treatments" ("id" bigserial primary key, "administered_at" timestamp(6), "appointment_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, "dosage" character varying, "medication" character varying, "name" character varying, "updated_at" timestamp(6) NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (9.8ms)[0m  [1m[35mCREATE INDEX "index_treatments_on_appointment_id" ON "treatments" ("appointment_id") /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "vets" CASCADE /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (22.4ms)[0m  [1m[35mCREATE TABLE "vets" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "email" character varying, "first_name" character varying, "last_name" character varying, "phone" character varying, "specialization" character varying, "updated_at" timestamp(6) NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.7ms)[0m  [1m[35mALTER TABLE "active_storage_attachments" ADD CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.3ms)[0m  [1m[35mALTER TABLE "active_storage_variant_records" ADD CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.1ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_0f1df792b9"
+FOREIGN KEY ("pet_id")
+  REFERENCES "pets" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "appointments" ADD CONSTRAINT "fk_rails_a77d9b33fe"
+FOREIGN KEY ("vet_id")
+  REFERENCES "vets" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (2.8ms)[0m  [1m[35mALTER TABLE "pets" ADD CONSTRAINT "fk_rails_1ff5d16ccb"
+FOREIGN KEY ("owner_id")
+  REFERENCES "owners" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (3.0ms)[0m  [1m[35mALTER TABLE "treatments" ADD CONSTRAINT "fk_rails_2024053d76"
+FOREIGN KEY ("appointment_id")
+  REFERENCES "appointments" ("id")
+ /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (24.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY) /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (2.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20260507132228) /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (2.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20260507132156),
+(20260507130639),
+(20260409131022),
+(20260409130742),
+(20260409130736),
+(20260409130731),
+(20260409130718); /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (25.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL) /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (2.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2026-05-07 14:06:33.483939', '2026-05-07 14:06:33.483943') RETURNING "key" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (2.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2026-05-07 14:06:33.488705' WHERE "ar_internal_metadata"."key" = 'environment' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.9ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'eda15a3622af069714c38c037bea3b86bd3ec1b4', '2026-05-07 14:06:33.492415', '2026-05-07 14:06:33.492416') RETURNING "key" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.2ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Load (0.1ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'juan@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.3ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 1', '2026-05-07 14:06:33.536204', 'juan@test.com', 'Juan', 'Perez', '123', '2026-05-07 14:06:33.536204') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'maria@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 2', '2026-05-07 14:06:33.542178', 'maria@test.com', 'Maria', 'Lopez', '456', '2026-05-07 14:06:33.542178') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'pedro@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 3', '2026-05-07 14:06:33.547533', 'pedro@test.com', 'Pedro', 'Gomez', '789', '2026-05-07 14:06:33.547533') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mPet Create (0.4ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Labrador', '2026-05-07 14:06:33.562883', '2020-01-01', 'Firulais', 1, 'dog', '2026-05-07 14:06:33.562883', 25.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (5.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (0.9ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Siames', '2026-05-07 14:06:33.570977', '2021-01-01', 'Michi', 1, 'cat', '2026-05-07 14:06:33.570977', 5.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (0.9ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Mini Lop', '2026-05-07 14:06:33.575326', '2022-01-01', 'Bunny', 2, 'rabbit', '2026-05-07 14:06:33.575326', 2.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Bulldog', '2026-05-07 14:06:33.580084', '2019-01-01', 'Rocky', 3, 'dog', '2026-05-07 14:06:33.580084', 20.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (0.8ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Persa', '2026-05-07 14:06:33.584956', '2020-01-01', 'Luna', 2, 'cat', '2026-05-07 14:06:33.584956', 4.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'ana@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.3ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-05-07 14:06:33.593829', 'ana@vet.com', 'Ana', 'Martinez', '111', 'General', '2026-05-07 14:06:33.593829') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'luis@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-05-07 14:06:33.602403', 'luis@vet.com', 'Luis', 'Rojas', '222', 'Surgery', '2026-05-07 14:06:33.602403') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.3ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:06:33.610228', '2026-05-05 14:06:33.606145', 3, 'Injury', 2, '2026-05-07 14:06:33.610228', 2) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:06:33.615294', '2026-05-02 14:06:33.614728', 4, 'Surgery', 2, '2026-05-07 14:06:33.615294', 2) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.3ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:06:33.619944', '2026-05-09 14:06:33.619708', 1, 'Checkup', 0, '2026-05-07 14:06:33.619944', 1) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.8ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:06:33.624327', '2026-05-08 14:06:33.624179', 2, 'Vaccination', 1, '2026-05-07 14:06:33.624327', 1) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.5ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:06:33.628152', '2026-05-10 14:06:33.627994', 5, 'Skin issue', 3, '2026-05-07 14:06:33.628152', 1) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.0ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:06:33.635665', '2026-04-12 14:06:33.635264', 3, 'Injury', 2, '2026-05-07 14:06:33.635665', 2) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.9ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:06:33.641035', '2025-12-28 14:06:33.640726', 4, 'Surgery', 2, '2026-05-07 14:06:33.641035', 2) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.9ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:06:33.647419', '2026-05-15 14:06:33.646798', 3, 'Injury', 0, '2026-05-07 14:06:33.647419', 2) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (19.7ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:06:33.652263', 4, '2026-05-07 14:06:33.663693', '1 dose', 'Rabies', 'Vaccine', '2026-05-07 14:06:33.663693') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.3ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Vaccination Record</h1><ul><li>Rabies vaccine administered</li><li>No adverse reactions observed</li></ul><p>Patient in <strong>excellent</strong> condition.</p>', '2026-05-07 14:06:33.684667', 'clinical_notes', 1, 'Treatment', '2026-05-07 14:06:33.684667') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.2ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:06:33.686166' WHERE "treatments"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.0ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:06:33.699791', 1, '2026-05-07 14:06:33.701159', '50mg', 'Ibuprofen', 'Pain Relief', '2026-05-07 14:06:33.701159') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Pain Management</h1><ul><li>Ibuprofen 50mg administered orally</li><li>Patient showed immediate relief</li></ul><p>Schedule <strong>follow-up</strong> in 48 hours.</p>', '2026-05-07 14:06:33.703006', 'clinical_notes', 2, 'Treatment', '2026-05-07 14:06:33.703006') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.1ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:06:33.704881' WHERE "treatments"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.0ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:06:33.711364', 2, '2026-05-07 14:06:33.712800', 'Standard', 'Anesthesia', 'Surgery', '2026-05-07 14:06:33.712800') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Surgical Procedure</h1><ul><li>General anesthesia applied</li><li>Procedure completed without complications</li><li>Recovery monitored for 2 hours post-op</li></ul><p><strong>Rest required</strong> for 7 days.</p>', '2026-05-07 14:06:33.714674', 'clinical_notes', 3, 'Treatment', '2026-05-07 14:06:33.714674') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.2ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:06:33.716380' WHERE "treatments"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (0.9ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:06:33.721605', 1, '2026-05-07 14:06:33.723323', '-', 'None', 'Bandage', '2026-05-07 14:06:33.723323') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Wound Dressing</h1><p>Clean bandage applied to affected area.</p><ul><li>Wound cleaned with saline</li><li>Sterile dressing applied</li></ul>', '2026-05-07 14:06:33.727528', 'clinical_notes', 4, 'Treatment', '2026-05-07 14:06:33.727528') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.1ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:06:33.728534' WHERE "treatments"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (0.8ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:06:33.734503', 4, '2026-05-07 14:06:33.736404', '-', 'None', 'Follow-up', '2026-05-07 14:06:33.736404') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Follow-up Consultation</h1><p>Patient recovering <strong>as expected</strong>.</p><ul><li>No signs of infection</li><li>Appetite normal</li></ul>', '2026-05-07 14:06:33.737936', 'clinical_notes', 5, 'Treatment', '2026-05-07 14:06:33.737936') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.1ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:06:33.738901' WHERE "treatments"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mActiveStorage::Blob Load (1.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mActiveStorage::Blob Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (357014, 'Ky3j3eqVhIZ90g+X+JR2gw==', 'image/png', '2026-05-07 14:06:33.758381', 'firulais.png', '06l9iv1iadavrtwco2kuk2di6a6j', '{"identified":true}', 'local') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (1, '2026-05-07 14:06:33.759907', 'photo', 1, 'Pet') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Update (0.1ms)[0m  [1m[33mUPDATE "pets" SET "updated_at" = '2026-05-07 14:06:33.761106' WHERE "pets"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+[36m  Disk Storage (0.8ms) [0m[32mUploaded file to key: 06l9iv1iadavrtwco2kuk2di6a6j (checksum: Ky3j3eqVhIZ90g+X+JR2gw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: a9968c9c-ebe7-4724-a895-d00304877838) to Async(default) with arguments: #<GlobalID:0x000078f80ff9e770 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/1>>
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mActiveStorage::Blob Load (2.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (94441, 'kVIZMjIIKsF3KzJ717tOMg==', 'image/jpeg', '2026-05-07 14:06:33.778926', 'michi.jpg', 'f1ija6lkgf49mew7ag0p9hgla82p', '{"identified":true}', 'local') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (2, '2026-05-07 14:06:33.780420', 'photo', 2, 'Pet') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Update (0.2ms)[0m  [1m[33mUPDATE "pets" SET "updated_at" = '2026-05-07 14:06:33.781838' WHERE "pets"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838]   [1m[36mActiveStorage::Blob Load (8.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838] Performing ActiveStorage::AnalyzeJob (Job ID: a9968c9c-ebe7-4724-a895-d00304877838) from Async(default) enqueued at 2026-05-07T14:06:33.771888667Z with arguments: #<GlobalID:0x000078f80fd96518 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838] [36m  Disk Storage (3.9ms) [0m[34mDownloaded file from key: 06l9iv1iadavrtwco2kuk2di6a6j[0m
+  [1m[36mTRANSACTION (8.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+[36m  Disk Storage (4.7ms) [0m[32mUploaded file to key: f1ija6lkgf49mew7ag0p9hgla82p (checksum: kVIZMjIIKsF3KzJ717tOMg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 881c8259-4b54-48c5-a2c1-489251933c0b) to Async(default) with arguments: #<GlobalID:0x000078f80fdc0de0 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838]   [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838]   [1m[36mActiveStorage::Blob Update (3.0ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"width":512,"height":512,"analyzed":true}' WHERE "active_storage_blobs"."id" = 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mActiveStorage::Blob Load (1.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838]   [1m[36mActiveStorage::Attachment Load (1.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  [1m[36mActiveStorage::Blob Create (2.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (8257, 'x1xqXj9A34JTVOKeTp+32w==', 'image/jpeg', '2026-05-07 14:06:33.804221', 'rocky.jpeg', 'oepc9sy8hnkbbyiryxlkd5xidmfu', '{"identified":true}', 'local') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838]   [1m[36mPet Load (1.9ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  [1m[36mActiveStorage::Attachment Create (1.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (3, '2026-05-07 14:06:33.808041', 'photo', 4, 'Pet') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838]   [1m[36mPet Update (1.9ms)[0m  [1m[33mUPDATE "pets" SET "updated_at" = '2026-05-07 14:06:33.809875' WHERE "pets"."id" = 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  [1m[36mPet Update (1.3ms)[0m  [1m[33mUPDATE "pets" SET "updated_at" = '2026-05-07 14:06:33.811222' WHERE "pets"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838]   [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a9968c9c-ebe7-4724-a895-d00304877838] Performed ActiveStorage::AnalyzeJob (Job ID: a9968c9c-ebe7-4724-a895-d00304877838) from Async(default) in 40.4ms
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+[36m  Disk Storage (0.6ms) [0m[32mUploaded file to key: oepc9sy8hnkbbyiryxlkd5xidmfu (checksum: x1xqXj9A34JTVOKeTp+32w==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: d2974329-0e49-4db4-903a-23bddebc8c7e) to Async(default) with arguments: #<GlobalID:0x000078f814b10c58 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/3>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [881c8259-4b54-48c5-a2c1-489251933c0b]   [1m[36mActiveStorage::Blob Load (7.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [881c8259-4b54-48c5-a2c1-489251933c0b] Performed ActiveStorage::AnalyzeJob (Job ID: 881c8259-4b54-48c5-a2c1-489251933c0b) from Async(default) in 9.28ms
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO public /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE DATABASE "lab_03_s_sapunar_1_development" ENCODING = 'unicode' /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE DATABASE "lab_03_s_sapunar_1_test" ENCODING = 'unicode' /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6750264325171922940) /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(6750264325171922940) /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO "$user", public /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO public /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mSET search_path TO "$user", public /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Load (0.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 1 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Destroy (0.1ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Load (1.2ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 2 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Destroy (0.1ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Load (1.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 3 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Destroy (0.1ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Load (1.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 4 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Destroy (0.1ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Load (1.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 5 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Destroy (0.1ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.8ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.8ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.2ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.9ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.9ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (0.8ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.1ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Load (1.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 8 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "appointments" WHERE "appointments"."id" = 8 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (0.4ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.2ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 2 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (0.3ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (1.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 5 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (0.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 5 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.1ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 2 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (0.2ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.1ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 1 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.1ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Destroy (0.1ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (0.1ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Destroy (0.1ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 1944c754-46c8-4553-bc67-816043c99939) to Async(default) with arguments: #<GlobalID:0x00007266f5766ed8 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/2>>
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 939aa197-227d-4294-a1a6-563ca1eb09d8) to Async(default) with arguments: #<GlobalID:0x00007266f5dce078 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/1>>
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (3.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.1ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 1 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Load (1.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Destroy (0.3ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Destroy (0.3ms)[0m  [1m[31mDELETE FROM "pets" WHERE "pets"."id" = 4 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 3 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" = 3 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939]   [1m[36mActiveStorage::Blob Load (14.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939] Performing ActiveStorage::PurgeJob (Job ID: 1944c754-46c8-4553-bc67-816043c99939) from Async(default) enqueued at 2026-05-07T14:07:19.921761367Z with arguments: #<GlobalID:0x00007266f5effa78 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/2>>
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8]   [1m[36mActiveStorage::Blob Load (12.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8] Performing ActiveStorage::PurgeJob (Job ID: 939aa197-227d-4294-a1a6-563ca1eb09d8) from Async(default) enqueued at 2026-05-07T14:07:19.924670229Z with arguments: #<GlobalID:0x00007266f5ef18d8 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mOwner Destroy (1.3ms)[0m  [1m[31mDELETE FROM "owners" WHERE "owners"."id" = 3 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939]   [1m[36mActiveStorage::Attachment Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 2 LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mTRANSACTION (4.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8]   [1m[36mActiveStorage::Attachment Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 1 LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mActiveStorage::Blob Load (1.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 3 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 852002ad-11a7-4562-81ca-e87620e74cda) to Async(default) with arguments: #<GlobalID:0x00007266f5c08360 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/3>>
+  [1m[36mOwner Load (1.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939]   [1m[36mActiveStorage::VariantRecord Load (1.9ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 2 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8]   [1m[36mActiveStorage::VariantRecord Load (1.8ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mVet Load (3.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939]   [1m[36mActiveStorage::Attachment Load (2.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'ActiveStorage::Blob' AND "active_storage_attachments"."name" = 'preview_image' LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8]   [1m[36mActiveStorage::Attachment Load (2.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'ActiveStorage::Blob' AND "active_storage_attachments"."name" = 'preview_image' LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939]   [1m[36mActiveStorage::Blob Destroy (2.1ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 2 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8]   [1m[36mActiveStorage::Blob Destroy (1.9ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939]   [1m[36mTRANSACTION (3.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8]   [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939] [36m  Disk Storage (0.7ms) [0m[31mDeleted file from key: f1ija6lkgf49mew7ag0p9hgla82p[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8] [36m  Disk Storage (0.2ms) [0m[31mDeleted file from key: 06l9iv1iadavrtwco2kuk2di6a6j[0m
+  [1m[36mAppointment Load (3.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/f1ija6lkgf49mew7ag0p9hgla82p/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [1944c754-46c8-4553-bc67-816043c99939] Performed ActiveStorage::PurgeJob (Job ID: 1944c754-46c8-4553-bc67-816043c99939) from Async(default) in 50.49ms
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/06l9iv1iadavrtwco2kuk2di6a6j/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [939aa197-227d-4294-a1a6-563ca1eb09d8] Performed ActiveStorage::PurgeJob (Job ID: 939aa197-227d-4294-a1a6-563ca1eb09d8) from Async(default) in 48.66ms
+  [1m[36mVet Destroy (1.4ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda]   [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 3 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda] Performing ActiveStorage::PurgeJob (Job ID: 852002ad-11a7-4562-81ca-e87620e74cda) from Async(default) enqueued at 2026-05-07T14:07:19.958086101Z with arguments: #<GlobalID:0x00007266f6efce30 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/3>>
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mTRANSACTION (15.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda]   [1m[36mActiveStorage::Attachment Exists? (16.2ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 3 LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mAppointment Load (17.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 2 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda]   [1m[36mActiveStorage::VariantRecord Load (0.9ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 3 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mVet Destroy (1.0ms)[0m  [1m[31mDELETE FROM "vets" WHERE "vets"."id" = 2 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda]   [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'ActiveStorage::Blob' AND "active_storage_attachments"."name" = 'preview_image' LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda]   [1m[36mActiveStorage::Blob Destroy (0.2ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 3 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda]   [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda] [36m  Disk Storage (0.6ms) [0m[31mDeleted file from key: oepc9sy8hnkbbyiryxlkd5xidmfu[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda] [36m  Disk Storage (0.0ms) [0m[31mDeleted files by key prefix: variants/oepc9sy8hnkbbyiryxlkd5xidmfu/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [852002ad-11a7-4562-81ca-e87620e74cda] Performed ActiveStorage::PurgeJob (Job ID: 852002ad-11a7-4562-81ca-e87620e74cda) from Async(default) in 28.48ms
+  [1m[36mOwner Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'juan@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.3ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 1', '2026-05-07 14:07:20.011547', 'juan@test.com', 'Juan', 'Perez', '123', '2026-05-07 14:07:20.011547') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'maria@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.2ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 2', '2026-05-07 14:07:20.018031', 'maria@test.com', 'Maria', 'Lopez', '456', '2026-05-07 14:07:20.018031') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "owners" WHERE "owners"."email" = 'pedro@test.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mOwner Create (0.1ms)[0m  [1m[32mINSERT INTO "owners" ("address", "created_at", "email", "first_name", "last_name", "phone", "updated_at") VALUES ('Calle 3', '2026-05-07 14:07:20.023275', 'pedro@test.com', 'Pedro', 'Gomez', '789', '2026-05-07 14:07:20.023275') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.3ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Labrador', '2026-05-07 14:07:20.029464', '2020-01-01', 'Firulais', 4, 'dog', '2026-05-07 14:07:20.029464', 25.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.0ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Siames', '2026-05-07 14:07:20.035407', '2021-01-01', 'Michi', 4, 'cat', '2026-05-07 14:07:20.035407', 5.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (0.9ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Mini Lop', '2026-05-07 14:07:20.040754', '2022-01-01', 'Bunny', 5, 'rabbit', '2026-05-07 14:07:20.040754', 2.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (0.8ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Bulldog', '2026-05-07 14:07:20.044896', '2019-01-01', 'Rocky', 6, 'dog', '2026-05-07 14:07:20.044896', 20.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Create (1.9ms)[0m  [1m[32mINSERT INTO "pets" ("breed", "created_at", "date_of_birth", "name", "owner_id", "species", "updated_at", "weight") VALUES ('Persa', '2026-05-07 14:07:20.049438', '2020-01-01', 'Luna', 5, 'cat', '2026-05-07 14:07:20.049438', 4.0) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'ana@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.2ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-05-07 14:07:20.056802', 'ana@vet.com', 'Ana', 'Martinez', '111', 'General', '2026-05-07 14:07:20.056802') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "vets" WHERE "vets"."email" = 'luis@vet.com' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mVet Create (0.1ms)[0m  [1m[32mINSERT INTO "vets" ("created_at", "email", "first_name", "last_name", "phone", "specialization", "updated_at") VALUES ('2026-05-07 14:07:20.062671', 'luis@vet.com', 'Luis', 'Rojas', '222', 'Surgery', '2026-05-07 14:07:20.062671') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.5ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:07:20.066862', '2026-05-05 14:07:20.066216', 8, 'Injury', 2, '2026-05-07 14:07:20.066862', 4) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.2ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:07:20.072336', '2026-05-02 14:07:20.071976', 9, 'Surgery', 2, '2026-05-07 14:07:20.072336', 4) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.9ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:07:20.077439', '2026-05-09 14:07:20.077089', 6, 'Checkup', 0, '2026-05-07 14:07:20.077439', 3) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.1ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:07:20.082774', '2026-05-08 14:07:20.082152', 7, 'Vaccination', 1, '2026-05-07 14:07:20.082774', 3) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.3ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:07:20.087026', '2026-05-10 14:07:20.086835', 10, 'Skin issue', 3, '2026-05-07 14:07:20.087026', 3) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.8ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:07:20.091539', '2026-04-12 14:07:20.091371', 8, 'Injury', 2, '2026-05-07 14:07:20.091539', 4) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (1.3ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:07:20.095275', '2025-12-28 14:07:20.095100', 9, 'Surgery', 2, '2026-05-07 14:07:20.095275', 4) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mAppointment Create (0.9ms)[0m  [1m[32mINSERT INTO "appointments" ("created_at", "date", "pet_id", "reason", "status", "updated_at", "vet_id") VALUES ('2026-05-07 14:07:20.100391', '2026-05-15 14:07:20.100190', 8, 'Injury', 0, '2026-05-07 14:07:20.100391', 4) RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.1ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:07:20.104619', 12, '2026-05-07 14:07:20.108172', '1 dose', 'Rabies', 'Vaccine', '2026-05-07 14:07:20.108172') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Vaccination Record</h1><ul><li>Rabies vaccine administered</li><li>No adverse reactions observed</li></ul><p>Patient in <strong>excellent</strong> condition.</p>', '2026-05-07 14:07:20.110105', 'clinical_notes', 6, 'Treatment', '2026-05-07 14:07:20.110105') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.2ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:07:20.111248' WHERE "treatments"."id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.2ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:07:20.116100', 9, '2026-05-07 14:07:20.117588', '50mg', 'Ibuprofen', 'Pain Relief', '2026-05-07 14:07:20.117588') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Pain Management</h1><ul><li>Ibuprofen 50mg administered orally</li><li>Patient showed immediate relief</li></ul><p>Schedule <strong>follow-up</strong> in 48 hours.</p>', '2026-05-07 14:07:20.119752', 'clinical_notes', 7, 'Treatment', '2026-05-07 14:07:20.119752') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 7 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.3ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:07:20.135210' WHERE "treatments"."id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.0ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:07:20.140566', 10, '2026-05-07 14:07:20.141874', 'Standard', 'Anesthesia', 'Surgery', '2026-05-07 14:07:20.141874') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Surgical Procedure</h1><ul><li>General anesthesia applied</li><li>Procedure completed without complications</li><li>Recovery monitored for 2 hours post-op</li></ul><p><strong>Rest required</strong> for 7 days.</p>', '2026-05-07 14:07:20.144376', 'clinical_notes', 8, 'Treatment', '2026-05-07 14:07:20.144376') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 8 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.2ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:07:20.145421' WHERE "treatments"."id" = 8 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.2ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:07:20.150229', 9, '2026-05-07 14:07:20.151717', '-', 'None', 'Bandage', '2026-05-07 14:07:20.151717') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.1ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Wound Dressing</h1><p>Clean bandage applied to affected area.</p><ul><li>Wound cleaned with saline</li><li>Sterile dressing applied</li></ul>', '2026-05-07 14:07:20.155595', 'clinical_notes', 9, 'Treatment', '2026-05-07 14:07:20.155595') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 9 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.1ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:07:20.156730' WHERE "treatments"."id" = 9 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Create (1.1ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-07 14:07:20.162408', 12, '2026-05-07 14:07:20.163466', '-', 'None', 'Follow-up', '2026-05-07 14:07:20.163466') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActionText::RichText Create (0.2ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<h1>Follow-up Consultation</h1><p>Patient recovering <strong>as expected</strong>.</p><ul><li>No signs of infection</li><li>Appetite normal</li></ul>', '2026-05-07 14:07:20.165904', 'clinical_notes', 10, 'Treatment', '2026-05-07 14:07:20.165904') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTreatment Update (0.2ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 14:07:20.166928' WHERE "treatments"."id" = 10 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mActiveStorage::Blob Create (0.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (357014, 'Ky3j3eqVhIZ90g+X+JR2gw==', 'image/png', '2026-05-07 14:07:20.178228', 'firulais.png', 'm1o4g6jtm8nwvbdl80yzgzvwl8at', '{"identified":true}', 'local') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (4, '2026-05-07 14:07:20.179439', 'photo', 6, 'Pet') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Update (0.1ms)[0m  [1m[33mUPDATE "pets" SET "updated_at" = '2026-05-07 14:07:20.180640' WHERE "pets"."id" = 6 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+[36m  Disk Storage (1.3ms) [0m[32mUploaded file to key: m1o4g6jtm8nwvbdl80yzgzvwl8at (checksum: Ky3j3eqVhIZ90g+X+JR2gw==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 4f83ef16-128e-4f27-933c-210e41ae85e4) to Async(default) with arguments: #<GlobalID:0x00007266f5b95ec8 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/4>>
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 7 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4]   [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 4 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4] Performing ActiveStorage::AnalyzeJob (Job ID: 4f83ef16-128e-4f27-933c-210e41ae85e4) from Async(default) enqueued at 2026-05-07T14:07:20.186479639Z with arguments: #<GlobalID:0x00007266f5c03478 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/4>>
+  [1m[36mActiveStorage::Blob Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (94441, 'kVIZMjIIKsF3KzJ717tOMg==', 'image/jpeg', '2026-05-07 14:07:20.190497', 'michi.jpg', 'hfmxc4v8unw08eqshh1jkgi0fzrz', '{"identified":true}', 'local') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveStorage::Attachment Create (1.8ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (5, '2026-05-07 14:07:20.192903', 'photo', 7, 'Pet') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4] [36m  Disk Storage (6.4ms) [0m[34mDownloaded file from key: m1o4g6jtm8nwvbdl80yzgzvwl8at[0m
+  [1m[36mPet Update (2.8ms)[0m  [1m[33mUPDATE "pets" SET "updated_at" = '2026-05-07 14:07:20.196443' WHERE "pets"."id" = 7 /*application='Lab03SSapunar1'*/[0m
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4]   [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4]   [1m[36mActiveStorage::Blob Update (2.0ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"width":512,"height":512,"analyzed":true}' WHERE "active_storage_blobs"."id" = 4 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[36m  Disk Storage (1.2ms) [0m[32mUploaded file to key: hfmxc4v8unw08eqshh1jkgi0fzrz (checksum: kVIZMjIIKsF3KzJ717tOMg==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67) to Async(default) with arguments: #<GlobalID:0x00007266f5cea828 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/5>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4]   [1m[36mActiveStorage::Attachment Load (3.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 4 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4]   [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 6 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4]   [1m[36mPet Update (1.2ms)[0m  [1m[33mUPDATE "pets" SET "updated_at" = '2026-05-07 14:07:20.219578' WHERE "pets"."id" = 6 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+  [1m[36mActiveStorage::Blob Load (2.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 9 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  ↳ app/models/pet.rb:23:in 'Pet#photo_valid'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4]   [1m[36mTRANSACTION (2.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [4f83ef16-128e-4f27-933c-210e41ae85e4] Performed ActiveStorage::AnalyzeJob (Job ID: 4f83ef16-128e-4f27-933c-210e41ae85e4) from Async(default) in 36.61ms
+  [1m[36mActiveStorage::Blob Create (0.2ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (8257, 'x1xqXj9A34JTVOKeTp+32w==', 'image/jpeg', '2026-05-07 14:07:20.224393', 'rocky.jpeg', '9gxtjg207r9uggby48s74nqon0ex', '{"identified":true}', 'local') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67]   [1m[36mActiveStorage::Blob Load (1.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 5 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67] Performing ActiveStorage::AnalyzeJob (Job ID: 1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67) from Async(default) enqueued at 2026-05-07T14:07:20.210273255Z with arguments: #<GlobalID:0x00007266f58adb48 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/5>>
+  [1m[36mActiveStorage::Attachment Create (1.4ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (6, '2026-05-07 14:07:20.227755', 'photo', 9, 'Pet') RETURNING "id" /*application='Lab03SSapunar1'*/[0m
+  [1m[36mPet Update (9.8ms)[0m  [1m[33mUPDATE "pets" SET "updated_at" = '2026-05-07 14:07:20.231430' WHERE "pets"."id" = 9 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67] [36m  Disk Storage (10.0ms) [0m[34mDownloaded file from key: hfmxc4v8unw08eqshh1jkgi0fzrz[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67]   [1m[36mActiveStorage::Blob Update (1.9ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"width":965,"height":1024,"analyzed":true}' WHERE "active_storage_blobs"."id" = 5 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[36m  Disk Storage (1.3ms) [0m[32mUploaded file to key: 9gxtjg207r9uggby48s74nqon0ex (checksum: x1xqXj9A34JTVOKeTp+32w==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 4c653fb2-bdc6-47df-9d7c-bbc66805b46b) to Async(default) with arguments: #<GlobalID:0x00007266f783a650 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/6>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67]   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67] Performed ActiveStorage::AnalyzeJob (Job ID: 1fb70e48-e3f6-4db8-bb8a-6d50e24d0f67) from Async(default) in 28.36ms
+Started GET "/" for 127.0.0.1 at 2026-05-07 10:07:23 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (6.8ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (4, 5, 6) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 4 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 5 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 6 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  Rendered owners/index.html.erb within layouts/application (Duration: 43.8ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 54.6ms | GC: 0.0ms)
+Completed 200 OK in 68ms (Views: 40.4ms | ActiveRecord: 15.7ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/owners" for 127.0.0.1 at 2026-05-07 10:07:25 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (4, 5, 6) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 4 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 5 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 6 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  Rendered owners/index.html.erb within layouts/application (Duration: 6.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 1.0ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets" for 127.0.0.1 at 2026-05-07 10:07:25 -0400
+Processing by PetsController#index as HTML
+  [1m[36mPet Pluck (0.5ms)[0m  [1m[34mSELECT DISTINCT "pets"."species" FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:5:in 'PetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/index.html.erb within layouts/application
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:27
+  [1m[36mOwner Load (0.2ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" IN (5, 4, 6) /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:27
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 8 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:30
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:30
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 7 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:30
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 5 LIMIT 1 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:31
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 6 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:30
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 4 LIMIT 1 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:31
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 9 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:30
+  [1m[36mActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 6 LIMIT 1 /*action='index',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/index.html.erb:31
+  Rendered pets/index.html.erb within layouts/application (Duration: 28.8ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | GC: 0.0ms)
+Completed 200 OK in 32ms (Views: 25.5ms | ActiveRecord: 5.3ms (11 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NiwicHVyIjoiYmxvYl9pZCJ9fQ==--1529ad66397f0b0fded2a628b5c3cd05fac04cf1/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGVnIiwicmVzaXplX3RvX2ZpbGwiOls2MCw2MF19LCJwdXIiOiJ2YXJpYXRpb24ifX0=--5ba5a71b74a30d9a54dec6d6bca9f48d963fce65/rocky.jpeg" for 127.0.0.1 at 2026-05-07 10:07:27 -0400
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NSwicHVyIjoiYmxvYl9pZCJ9fQ==--4c4b4f4c33c9a5fc5d101ded85c615ccab21dfb8/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fZmlsbCI6WzYwLDYwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--92bb33c9c37af2e2d4855f84936fbf83f5221b17/michi.jpg" for 127.0.0.1 at 2026-05-07 10:07:27 -0400
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NCwicHVyIjoiYmxvYl9pZCJ9fQ==--4863c0c0119a6b6faf3201d4e2a90807814db637/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJwbmciLCJyZXNpemVfdG9fZmlsbCI6WzYwLDYwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--0329c26b14bacb2a6372865880cd65362ecb78ce/firulais.png" for 127.0.0.1 at 2026-05-07 10:07:27 -0400
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id" => "eyJfcmFpbHMiOnsiZGF0YSI6NiwicHVyIjoiYmxvYl9pZCJ9fQ==--1529ad66397f0b0fded2a628b5c3cd05fac04cf1", "variation_key" => "[FILTERED]", "filename" => "rocky"}
+  Parameters: {"signed_blob_id" => "eyJfcmFpbHMiOnsiZGF0YSI6NSwicHVyIjoiYmxvYl9pZCJ9fQ==--4c4b4f4c33c9a5fc5d101ded85c615ccab21dfb8", "variation_key" => "[FILTERED]", "filename" => "michi"}
+Processing by ActiveStorage::Representations::RedirectController#show as PNG
+  Parameters: {"signed_blob_id" => "eyJfcmFpbHMiOnsiZGF0YSI6NCwicHVyIjoiYmxvYl9pZCJ9fQ==--4863c0c0119a6b6faf3201d4e2a90807814db637", "variation_key" => "[FILTERED]", "filename" => "firulais"}
+  [1m[36mActiveStorage::Blob Load (1.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 6 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 6 AND "active_storage_variant_records"."variation_digest" = 'ebqUw1kcIyoyBE6xcc+ldXCmWrc=' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (4.6ms) [0m[34mDownloaded file from key: 9gxtjg207r9uggby48s74nqon0ex[0m
+  [1m[36mActiveStorage::Blob Load (54.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Load (1.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 5 AND "active_storage_variant_records"."variation_digest" = 'SFZIXyQnvkSdnw3tu66qgomuFeQ=' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (3.5ms) [0m[34mDownloaded file from key: hfmxc4v8unw08eqshh1jkgi0fzrz[0m
+  [1m[36mActiveStorage::Blob Load (82.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Create (6.4ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (6, 'ebqUw1kcIyoyBE6xcc+ldXCmWrc=') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Load (3.7ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 4 AND "active_storage_variant_records"."variation_digest" = '9d68qSqY/fqYe/E4K8qZX0gZePA=' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'ActiveStorage::VariantRecord' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Attachment Load (2.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 1 AND "active_storage_attachments"."record_type" = 'ActiveStorage::VariantRecord' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (7.1ms) [0m[34mDownloaded file from key: m1o4g6jtm8nwvbdl80yzgzvwl8at[0m
+  [1m[36mActiveStorage::Blob Create (1.1ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (2004, '88B9+tvqPYTSWYHo1gmHCA==', 'image/jpeg', '2026-05-07 14:07:27.204974', 'rocky.jpeg', 'k09nk5e9hk7ydvg4xodq1tq5y43v', '{"identified":true}', 'local') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Attachment Create (19.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (7, '2026-05-07 14:07:27.208820', 'image', 1, 'ActiveStorage::VariantRecord') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mCOMMIT /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mBEGIN /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (2.1ms) [0m[32mUploaded file to key: k09nk5e9hk7ydvg4xodq1tq5y43v (checksum: 88B9+tvqPYTSWYHo1gmHCA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: e870b38a-2ff3-4deb-a92f-f0f230de9266) to Async(default) with arguments: #<GlobalID:0x00007bc85717cd70 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/7>>
+  [1m[36mActiveStorage::VariantRecord Create (12.2ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (5, 'SFZIXyQnvkSdnw3tu66qgomuFeQ=') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: k09nk5e9hk7ydvg4xodq1tq5y43v (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJrMDluazVlOWhrN3lkdmc0eG9kcTF0cTV5NDN2IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwicm9ja3kuanBlZ1wiOyBmaWxlbmFtZSo9VVRGLTgnJ3JvY2t5LmpwZWciLCJjb250ZW50X3R5cGUiOiJpbWFnZS9qcGVnIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyNi0wNS0wN1QxNDoxMjoyNy4yNDlaIiwicHVyIjoiYmxvYl9rZXkifX0=--9dbc5d49d6ecd595ee39442d2d7d11af1a16e3ae/rocky.jpeg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJrMDluazVlOWhrN3lkdmc0eG9kcTF0cTV5NDN2IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwicm9ja3kuanBlZ1wiOyBmaWxlbmFtZSo9VVRGLTgnJ3JvY2t5LmpwZWciLCJjb250ZW50X3R5cGUiOiJpbWFnZS9qcGVnIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyNi0wNS0wN1QxNDoxMjoyNy4yNDlaIiwicHVyIjoiYmxvYl9rZXkifX0=--9dbc5d49d6ecd595ee39442d2d7d11af1a16e3ae/rocky.jpeg
+  [1m[36mActiveStorage::Blob Load (2.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'ActiveStorage::VariantRecord' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+Completed 302 Found in 187ms (ActiveRecord: 38.3ms (7 queries, 0 cached) | GC: 96.8ms)
+
+
+  [1m[36mActiveStorage::Attachment Load (2.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 2 AND "active_storage_attachments"."record_type" = 'ActiveStorage::VariantRecord' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Blob Create (0.6ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (19345, 'diO64/LH7LJ367efXic6VQ==', 'image/jpeg', '2026-05-07 14:07:27.270906', 'michi.jpg', 'e26hnxar4p5t7y5xh0j39lct4wea', '{"identified":true}', 'local') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Attachment Create (1.2ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (8, '2026-05-07 14:07:27.273714', 'image', 2, 'ActiveStorage::VariantRecord') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mBEGIN /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJrMDluazVlOWhrN3lkdmc0eG9kcTF0cTV5NDN2IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwicm9ja3kuanBlZ1wiOyBmaWxlbmFtZSo9VVRGLTgnJ3JvY2t5LmpwZWciLCJjb250ZW50X3R5cGUiOiJpbWFnZS9qcGVnIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyNi0wNS0wN1QxNDoxMjoyNy4yNDlaIiwicHVyIjoiYmxvYl9rZXkifX0=--9dbc5d49d6ecd595ee39442d2d7d11af1a16e3ae/rocky.jpeg" for 127.0.0.1 at 2026-05-07 10:07:27 -0400
+  [1m[36mActiveStorage::VariantRecord Create (3.8ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (4, '9d68qSqY/fqYe/E4K8qZX0gZePA=') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'ActiveStorage::VariantRecord' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (3.4ms) [0m[32mUploaded file to key: e26hnxar4p5t7y5xh0j39lct4wea (checksum: diO64/LH7LJ367efXic6VQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0) to Async(default) with arguments: #<GlobalID:0x00007bc85712aac0 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/8>>
+  [1m[36mActiveStorage::Attachment Load (1.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 3 AND "active_storage_attachments"."record_type" = 'ActiveStorage::VariantRecord' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: e26hnxar4p5t7y5xh0j39lct4wea (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJlMjZobnhhcjRwNXQ3eTV4aDBqMzlsY3Q0d2VhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwibWljaGkuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnbWljaGkuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDUtMDdUMTQ6MTI6MjcuMjkwWiIsInB1ciI6ImJsb2Jfa2V5In19--a482ae89927ee0bbae8613c0d44979ba569106e8/michi.jpg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJlMjZobnhhcjRwNXQ3eTV4aDBqMzlsY3Q0d2VhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwibWljaGkuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnbWljaGkuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDUtMDdUMTQ6MTI6MjcuMjkwWiIsInB1ciI6ImJsb2Jfa2V5In19--a482ae89927ee0bbae8613c0d44979ba569106e8/michi.jpg
+  [1m[36mActiveStorage::Blob Create (1.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (11388, 'Iu3dCmYo2XNMeSNUoZRHYQ==', 'image/png', '2026-05-07 14:07:27.289571', 'firulais.png', 'nu7147qzeg8ihcz572d3s1b2n8a2', '{"identified":true}', 'local') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+Completed 302 Found in 226ms (ActiveRecord: 94.0ms (7 queries, 0 cached) | GC: 108.2ms)
+
+
+  [1m[36mActiveStorage::Attachment Create (0.8ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (9, '2026-05-07 14:07:27.294173', 'image', 3, 'ActiveStorage::VariantRecord') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJlMjZobnhhcjRwNXQ3eTV4aDBqMzlsY3Q0d2VhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwibWljaGkuanBnXCI7IGZpbGVuYW1lKj1VVEYtOCcnbWljaGkuanBnIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDUtMDdUMTQ6MTI6MjcuMjkwWiIsInB1ciI6ImJsb2Jfa2V5In19--a482ae89927ee0bbae8613c0d44979ba569106e8/michi.jpg" for 127.0.0.1 at 2026-05-07 10:07:27 -0400
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (0.8ms) [0m[32mUploaded file to key: nu7147qzeg8ihcz572d3s1b2n8a2 (checksum: Iu3dCmYo2XNMeSNUoZRHYQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: c1efe6b7-e70f-49fb-9a90-60fe17df6b95) to Async(default) with arguments: #<GlobalID:0x00007bc8573741a0 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/9>>
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: nu7147qzeg8ihcz572d3s1b2n8a2 (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJudTcxNDdxemVnOGloY3o1NzJkM3MxYjJuOGEyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiZmlydWxhaXMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnZmlydWxhaXMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyNi0wNS0wN1QxNDoxMjoyNy4zMDRaIiwicHVyIjoiYmxvYl9rZXkifX0=--382e76558f2a5cfb233bec453ccc97082a7c2d14/firulais.png)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJudTcxNDdxemVnOGloY3o1NzJkM3MxYjJuOGEyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiZmlydWxhaXMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnZmlydWxhaXMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyNi0wNS0wN1QxNDoxMjoyNy4zMDRaIiwicHVyIjoiYmxvYl9rZXkifX0=--382e76558f2a5cfb233bec453ccc97082a7c2d14/firulais.png
+Completed 302 Found in 240ms (ActiveRecord: 171.7ms (7 queries, 0 cached) | GC: 108.2ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e870b38a-2ff3-4deb-a92f-f0f230de9266]   [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 7 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e870b38a-2ff3-4deb-a92f-f0f230de9266] Performing ActiveStorage::AnalyzeJob (Job ID: e870b38a-2ff3-4deb-a92f-f0f230de9266) from Async(default) enqueued at 2026-05-07T14:07:27.244864400Z with arguments: #<GlobalID:0x00007bc8573b3418 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/7>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e870b38a-2ff3-4deb-a92f-f0f230de9266] [36m  Disk Storage (2.1ms) [0m[34mDownloaded file from key: k09nk5e9hk7ydvg4xodq1tq5y43v[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e870b38a-2ff3-4deb-a92f-f0f230de9266]   [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e870b38a-2ff3-4deb-a92f-f0f230de9266]   [1m[36mActiveStorage::Blob Update (1.7ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"width":60,"height":60,"analyzed":true}' WHERE "active_storage_blobs"."id" = 7 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJudTcxNDdxemVnOGloY3o1NzJkM3MxYjJuOGEyIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiZmlydWxhaXMucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnZmlydWxhaXMucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyNi0wNS0wN1QxNDoxMjoyNy4zMDRaIiwicHVyIjoiYmxvYl9rZXkifX0=--382e76558f2a5cfb233bec453ccc97082a7c2d14/firulais.png" for 127.0.0.1 at 2026-05-07 10:07:27 -0400
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e870b38a-2ff3-4deb-a92f-f0f230de9266]   [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 7 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e870b38a-2ff3-4deb-a92f-f0f230de9266]   [1m[36mActiveStorage::VariantRecord Load (0.6ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."id" = 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Processing by ActiveStorage::DiskController#show as JPEG
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e870b38a-2ff3-4deb-a92f-f0f230de9266]   [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "rocky"}
+[ActiveJob] [ActiveStorage::AnalyzeJob] [e870b38a-2ff3-4deb-a92f-f0f230de9266] Performed ActiveStorage::AnalyzeJob (Job ID: e870b38a-2ff3-4deb-a92f-f0f230de9266) from Async(default) in 21.04ms
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 8 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0] Performing ActiveStorage::AnalyzeJob (Job ID: ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0) from Async(default) enqueued at 2026-05-07T14:07:27.285892091Z with arguments: #<GlobalID:0x00007bc8574b76e8 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/8>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0] [36m  Disk Storage (2.1ms) [0m[34mDownloaded file from key: e26hnxar4p5t7y5xh0j39lct4wea[0m
+Completed 200 OK in 8ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0]   [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0]   [1m[36mActiveStorage::Blob Update (2.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"width":60,"height":60,"analyzed":true}' WHERE "active_storage_blobs"."id" = 8 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 8 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0]   [1m[36mActiveStorage::VariantRecord Load (0.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."id" = 2 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "michi"}
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c1efe6b7-e70f-49fb-9a90-60fe17df6b95]   [1m[36mActiveStorage::Blob Load (1.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 9 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c1efe6b7-e70f-49fb-9a90-60fe17df6b95] Performing ActiveStorage::AnalyzeJob (Job ID: c1efe6b7-e70f-49fb-9a90-60fe17df6b95) from Async(default) enqueued at 2026-05-07T14:07:27.301772842Z with arguments: #<GlobalID:0x00007bc8575da5e8 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/9>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0]   [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0] Performed ActiveStorage::AnalyzeJob (Job ID: ddd2c1f0-a43a-46a0-b4c7-57576b0fa9d0) from Async(default) in 21.35ms
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c1efe6b7-e70f-49fb-9a90-60fe17df6b95] [36m  Disk Storage (3.0ms) [0m[34mDownloaded file from key: nu7147qzeg8ihcz572d3s1b2n8a2[0m
+Completed 200 OK in 8ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c1efe6b7-e70f-49fb-9a90-60fe17df6b95]   [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c1efe6b7-e70f-49fb-9a90-60fe17df6b95]   [1m[36mActiveStorage::Blob Update (7.2ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"width":60,"height":60,"analyzed":true}' WHERE "active_storage_blobs"."id" = 9 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "firulais"}
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c1efe6b7-e70f-49fb-9a90-60fe17df6b95]   [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 9 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c1efe6b7-e70f-49fb-9a90-60fe17df6b95]   [1m[36mActiveStorage::VariantRecord Load (0.1ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."id" = 3 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Completed 200 OK in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c1efe6b7-e70f-49fb-9a90-60fe17df6b95]   [1m[36mTRANSACTION (1.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [c1efe6b7-e70f-49fb-9a90-60fe17df6b95] Performed ActiveStorage::AnalyzeJob (Job ID: c1efe6b7-e70f-49fb-9a90-60fe17df6b95) from Async(default) in 25.42ms
+Started GET "/vets" for 127.0.0.1 at 2026-05-07 10:07:27 -0400
+Processing by VetsController#index as HTML
+  [1m[36mVet Pluck (0.3ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:5:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.1ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:24
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" IN (3, 4) /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:24
+  Rendered vets/index.html.erb within layouts/application (Duration: 13.8ms | GC: 0.5ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | GC: 0.5ms)
+Completed 200 OK in 23ms (Views: 12.6ms | ActiveRecord: 5.1ms (3 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/owners" for 127.0.0.1 at 2026-05-07 10:07:29 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (4, 5, 6) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 4 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 5 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 6 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  Rendered owners/index.html.erb within layouts/application (Duration: 5.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 1.0ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/vets" for 127.0.0.1 at 2026-05-07 10:07:29 -0400
+Processing by VetsController#index as HTML
+  [1m[36mVet Pluck (0.3ms)[0m  [1m[34mSELECT DISTINCT "vets"."specialization" FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:5:in 'VetsController#index'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/index.html.erb within layouts/application
+  [1m[36mVet Load (0.1ms)[0m  [1m[34mSELECT "vets".* FROM "vets" /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:24
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" IN (3, 4) /*action='index',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/index.html.erb:24
+  Rendered vets/index.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 4.8ms | ActiveRecord: 1.0ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-05-07 10:07:30 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mPet Load (0.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (8, 9, 6, 7, 10) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVet Load (0.2ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (4, 3) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 7.7ms | GC: 0.2ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 0.2ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/pets/8" for 127.0.0.1 at 2026-05-07 10:07:36 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "8"}
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:45:in 'PetsController#set_pet'
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mVet Load (0.2ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mTreatment Load (0.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 8 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:12
+  [1m[36mOwner Load (0.1ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:25
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date > '2026-05-07') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:38
+  [1m[36mVet Load (0.2ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:41
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date < '2026-05-07') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  [1m[36mCACHE Treatment Load (0.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16)[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  Rendered pets/show.html.erb within layouts/application (Duration: 13.2ms | GC: 0.6ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | GC: 0.6ms)
+Completed 200 OK in 31ms (Views: 13.4ms | ActiveRecord: 3.3ms (14 queries, 5 cached) | GC: 1.7ms)
+
+

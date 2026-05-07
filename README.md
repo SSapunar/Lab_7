@@ -4,8 +4,10 @@
 
 ```bash
 bundle install
-bin/rails db:setup
-bin/rails server
+rails db:create
+rails db:migrate
+rails db:seed
+rails server
 ```
 
 Then open http://localhost:3000.
