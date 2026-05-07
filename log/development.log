@@ -11272,3 +11272,1203 @@ Processing by PetsController#show as HTML
 Completed 200 OK in 31ms (Views: 13.4ms | ActiveRecord: 3.3ms (14 queries, 5 cached) | GC: 1.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2026-05-07 10:58:33 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (13.7ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (4, 5, 6) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 4 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 5 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 6 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  Rendered owners/index.html.erb within layouts/application (Duration: 78.1ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 101.0ms | GC: 0.0ms)
+Completed 200 OK in 129ms (Views: 74.6ms | ActiveRecord: 29.6ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-05-07 10:58:39 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (8, 9, 6, 7, 10) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (4, 3) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 37.0ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | GC: 0.0ms)
+Completed 200 OK in 45ms (Views: 33.9ms | ActiveRecord: 5.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets/8" for 127.0.0.1 at 2026-05-07 10:58:43 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "8"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:45:in 'PetsController#set_pet'
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mAppointment Load (1.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mTreatment Load (1.1ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (2.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 8 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:12
+  [1m[36mOwner Load (1.6ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:25
+  [1m[36mAppointment Load (1.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date > '2026-05-07') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:38
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:41
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date < '2026-05-07') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  [1m[36mCACHE Treatment Load (0.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16)[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  Rendered pets/show.html.erb within layouts/application (Duration: 122.7ms | GC: 54.7ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 125.0ms | GC: 54.7ms)
+Completed 200 OK in 175ms (Views: 116.6ms | ActiveRecord: 22.1ms (14 queries, 5 cached) | GC: 54.7ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 10:58:50 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (0.6ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (1.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:13
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:14
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 3.1ms | GC: 0.0ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | GC: 0.0ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 31.1ms | GC: 2.7ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 34.3ms | GC: 2.7ms)
+Completed 200 OK in 60ms (Views: 33.5ms | ActiveRecord: 5.5ms (6 queries, 1 cached) | GC: 5.3ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-05-07 10:58:58 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (1.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (8, 9, 6, 7, 10) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVet Load (0.6ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (4, 3) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 26.6ms | GC: 2.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.3ms | GC: 2.0ms)
+Completed 200 OK in 32ms (Views: 27.3ms | ActiveRecord: 2.9ms (3 queries, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/pets/8" for 127.0.0.1 at 2026-05-07 10:58:59 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "8"}
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:45:in 'PetsController#set_pet'
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mTreatment Load (0.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 8 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:12
+  [1m[36mOwner Load (0.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:25
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date > '2026-05-07') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:38
+  [1m[36mVet Load (0.2ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:41
+  [1m[36mAppointment Load (0.2ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date < '2026-05-07') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  [1m[36mCACHE Treatment Load (0.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16)[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  Rendered pets/show.html.erb within layouts/application (Duration: 17.1ms | GC: 0.4ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.5ms | GC: 0.4ms)
+Completed 200 OK in 30ms (Views: 17.6ms | ActiveRecord: 3.4ms (14 queries, 5 cached) | GC: 1.0ms)
+
+
+Started GET "/appointments/9/edit" for 127.0.0.1 at 2026-05-07 10:59:01 -0400
+Processing by AppointmentsController#edit as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  [1m[36mPet Load (1.1ms)[0m  [1m[34mSELECT "pets".* FROM "pets" ORDER BY "pets"."name" ASC /*action='edit',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/_form.html.erb:21
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" ORDER BY "vets"."last_name" ASC /*action='edit',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/_form.html.erb:26
+  Rendered appointments/_form.html.erb (Duration: 19.5ms | GC: 0.5ms)
+  Rendered appointments/edit.html.erb within layouts/application (Duration: 21.5ms | GC: 0.5ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.8ms | GC: 0.6ms)
+Completed 200 OK in 27ms (Views: 22.1ms | ActiveRecord: 1.9ms (3 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 10:59:01 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (0.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:13
+  [1m[36mVet Load (0.2ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:14
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.9ms | GC: 0.0ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 3.0ms | GC: 2.1ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 12.8ms | GC: 2.9ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | GC: 3.6ms)
+Completed 200 OK in 23ms (Views: 14.7ms | ActiveRecord: 1.9ms (6 queries, 1 cached) | GC: 3.6ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 10:59:08 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.8ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (1.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (1.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:13
+  [1m[36mVet Load (1.8ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:14
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 5.4ms | GC: 3.4ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 3.7ms | GC: 2.1ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 81.8ms | GC: 44.7ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 86.9ms | GC: 46.9ms)
+Completed 200 OK in 130ms (Views: 90.4ms | ActiveRecord: 6.2ms (6 queries, 1 cached) | GC: 66.6ms)
+
+
+Started GET "/owners" for 127.0.0.1 at 2026-05-07 11:01:25 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (4, 5, 6) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 4 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 5 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 6 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  Rendered owners/index.html.erb within layouts/application (Duration: 37.0ms | GC: 1.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.4ms | GC: 1.3ms)
+Completed 200 OK in 47ms (Views: 35.6ms | ActiveRecord: 6.3ms (5 queries, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 11:01:25 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (0.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:19
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:20
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.4ms | GC: 0.0ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.1ms | GC: 0.3ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 21.7ms | GC: 0.5ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.5ms | GC: 0.9ms)
+Completed 200 OK in 54ms (Views: 21.6ms | ActiveRecord: 7.7ms (6 queries, 1 cached) | GC: 1.7ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 11:01:50 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (1.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (1.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:13
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:14
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.5ms | GC: 0.0ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.0ms | GC: 0.0ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 66.9ms | GC: 23.5ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 69.9ms | GC: 23.5ms)
+Completed 200 OK in 126ms (Views: 66.0ms | ActiveRecord: 17.2ms (6 queries, 1 cached) | GC: 23.5ms)
+
+
+Started GET "/vets/4" for 127.0.0.1 at 2026-05-07 11:02:00 -0400
+Processing by VetsController#show as HTML
+  Parameters: {"id" => "4"}
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/controllers/vets_controller.rb:43:in 'VetsController#set_vet'
+  Rendering layout layouts/application.html.erb
+  Rendering vets/show.html.erb within layouts/application
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 4 AND (date > '2026-05-07') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:20
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:23
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."vet_id" = 4 AND (date < '2026-05-07') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:37
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1[0m
+  ↳ app/views/vets/show.html.erb:40
+  [1m[36mPet Load (0.3ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:40
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1[0m
+  ↳ app/views/vets/show.html.erb:40
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 9 LIMIT 1[0m
+  ↳ app/views/vets/show.html.erb:40
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."specialization" = 'Surgery' AND "vets"."id" != 4 /*action='show',application='Lab03SSapunar1',controller='vets'*/[0m
+  ↳ app/views/vets/show.html.erb:50
+  Rendered vets/show.html.erb within layouts/application (Duration: 45.0ms | GC: 1.3ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 48.4ms | GC: 1.6ms)
+Completed 200 OK in 66ms (Views: 43.2ms | ActiveRecord: 9.6ms (9 queries, 3 cached) | GC: 1.8ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 11:02:01 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (0.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.4ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:19
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:20
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.5ms | GC: 0.0ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | GC: 0.0ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 13.0ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.2ms | GC: 0.0ms)
+Completed 200 OK in 40ms (Views: 14.3ms | ActiveRecord: 4.7ms (6 queries, 1 cached) | GC: 0.6ms)
+
+
+Started GET "/appointments/9/treatments/7/edit" for 127.0.0.1 at 2026-05-07 11:02:06 -0400
+Processing by TreatmentsController#edit as HTML
+  Parameters: {"appointment_id" => "9", "id" => "7"}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  [1m[36mTreatment Load (0.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 AND "treatments"."id" = 7 LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:40:in 'TreatmentsController#set_treatment'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  [1m[36mActionText::RichText Load (1.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 7 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/views/treatments/_form.html.erb:21
+  Rendered treatments/_form.html.erb (Duration: 18.9ms | GC: 0.0ms)
+  Rendered treatments/edit.html.erb within layouts/application (Duration: 25.3ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.5ms | GC: 0.0ms)
+Completed 200 OK in 37ms (Views: 27.8ms | ActiveRecord: 2.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-07 11:02:17 -0400
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (4, 5, 6) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 4 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 5 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 6 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  Rendered owners/index.html.erb within layouts/application (Duration: 19.8ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | GC: 0.0ms)
+Completed 200 OK in 26ms (Views: 18.0ms | ActiveRecord: 4.2ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/appointments/9/treatments/7" for 127.0.0.1 at 2026-05-07 11:02:20 -0400
+Processing by TreatmentsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "treatment" => {"name" => "Pain Relief", "medication" => "Ibuprofen", "dosage" => "50mg", "clinical_notes" => "<h1>Pain Management</h1><ul><li>Ibuprofen 50mg administered orally</li><li>Patient showed immediate relief</li></ul><p>Schedule <strong>follow-up</strong> in 48 hours.</p>", "administered_at" => "2026-05-07T14:07:20"}, "commit" => "Update Treatment", "appointment_id" => "9", "id" => "7"}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='update',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  [1m[36mTreatment Load (1.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 AND "treatments"."id" = 7 LIMIT 1 /*action='update',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:40:in 'TreatmentsController#set_treatment'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='update',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:21:in 'TreatmentsController#update'
+  [1m[36mActionText::RichText Load (3.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 7 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*action='update',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:21:in 'TreatmentsController#update'
+  [1m[36mTreatment Update (1.7ms)[0m  [1m[33mUPDATE "treatments" SET "administered_at" = '2026-05-07 14:07:20', "updated_at" = '2026-05-07 15:02:20.136724' WHERE "treatments"."id" = 7 /*action='update',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:21:in 'TreatmentsController#update'
+  [1m[36mTRANSACTION (11.2ms)[0m  [1m[35mCOMMIT /*action='update',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:21:in 'TreatmentsController#update'
+Redirected to http://127.0.0.1:3000/appointments/9
+↳ app/controllers/treatments_controller.rb:22:in 'TreatmentsController#update'
+Completed 302 Found in 115ms (ActiveRecord: 17.9ms (4 queries, 0 cached) | GC: 63.0ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 11:02:20 -0400
+Processing by AppointmentsController#show as TURBO_STREAM
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (0.3ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.3ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:19
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:20
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.5ms | GC: 0.7ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 12.5ms | GC: 0.7ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.0ms | GC: 0.7ms)
+Completed 200 OK in 26ms (Views: 14.1ms | ActiveRecord: 1.8ms (6 queries, 1 cached) | GC: 1.6ms)
+
+
+Started GET "/appointments/9/treatments/new" for 127.0.0.1 at 2026-05-07 11:02:32 -0400
+Processing by TreatmentsController#new as HTML
+  Parameters: {"appointment_id" => "9"}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='new',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered treatments/_form.html.erb (Duration: 8.8ms | GC: 1.6ms)
+  Rendered treatments/new.html.erb within layouts/application (Duration: 14.5ms | GC: 1.6ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | GC: 1.6ms)
+Completed 200 OK in 26ms (Views: 20.7ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2026-05-07 11:04:24 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (13.3ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (4, 5, 6) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 4 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 5 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 6 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  Rendered owners/index.html.erb within layouts/application (Duration: 79.8ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 101.9ms | GC: 0.0ms)
+Completed 200 OK in 129ms (Views: 74.5ms | ActiveRecord: 30.3ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-05-07 11:04:26 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (2.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mPet Load (4.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (8, 9, 6, 7, 10) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (4, 3) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 79.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 80.8ms | GC: 0.0ms)
+Completed 200 OK in 90ms (Views: 66.3ms | ActiveRecord: 15.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/pets/8" for 127.0.0.1 at 2026-05-07 11:04:27 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "8"}
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:45:in 'PetsController#set_pet'
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mTreatment Load (0.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 8 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:12
+  [1m[36mOwner Load (0.2ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:25
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date > '2026-05-07') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:38
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:41
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date < '2026-05-07') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  [1m[36mCACHE Treatment Load (0.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16)[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  Rendered pets/show.html.erb within layouts/application (Duration: 63.1ms | GC: 33.6ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 64.6ms | GC: 33.6ms)
+Completed 200 OK in 88ms (Views: 60.8ms | ActiveRecord: 8.7ms (14 queries, 5 cached) | GC: 33.6ms)
+
+
+Started GET "/pets/8" for 127.0.0.1 at 2026-05-07 11:04:27 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "8"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:45:in 'PetsController#set_pet'
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mVet Load (0.7ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mTreatment Load (0.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 8 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:12
+  [1m[36mOwner Load (0.7ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:25
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date > '2026-05-07') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:38
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:41
+  [1m[36mAppointment Load (0.3ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date < '2026-05-07') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  [1m[36mCACHE Treatment Load (0.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16)[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  Rendered pets/show.html.erb within layouts/application (Duration: 29.2ms | GC: 3.4ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 32.7ms | GC: 3.4ms)
+Completed 200 OK in 48ms (Views: 32.1ms | ActiveRecord: 4.5ms (14 queries, 5 cached) | GC: 3.4ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 11:04:33 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (0.7ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:19
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:20
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.8ms | GC: 0.0ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 3.1ms | GC: 2.0ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 30.2ms | GC: 2.4ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 31.8ms | GC: 2.4ms)
+Completed 200 OK in 69ms (Views: 32.7ms | ActiveRecord: 5.3ms (6 queries, 1 cached) | GC: 4.0ms)
+
+
+Started GET "/appointments/9/treatments/new" for 127.0.0.1 at 2026-05-07 11:04:35 -0400
+Processing by TreatmentsController#new as HTML
+  Parameters: {"appointment_id" => "9"}
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='new',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered treatments/_form.html.erb (Duration: 15.5ms | GC: 0.0ms)
+  Rendered treatments/new.html.erb within layouts/application (Duration: 26.4ms | GC: 1.5ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | GC: 1.5ms)
+Completed 200 OK in 38ms (Views: 31.1ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/appointments/9/treatments/7/edit" for 127.0.0.1 at 2026-05-07 11:04:35 -0400
+Processing by TreatmentsController#edit as HTML
+  Parameters: {"appointment_id" => "9", "id" => "7"}
+  [1m[36mAppointment Load (1.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  [1m[36mTreatment Load (1.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 AND "treatments"."id" = 7 LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:40:in 'TreatmentsController#set_treatment'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 7 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/views/treatments/_form.html.erb:21
+  Rendered treatments/_form.html.erb (Duration: 16.4ms | GC: 3.3ms)
+  Rendered treatments/edit.html.erb within layouts/application (Duration: 23.1ms | GC: 3.3ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | GC: 3.3ms)
+Completed 200 OK in 41ms (Views: 26.5ms | ActiveRecord: 3.0ms (3 queries, 0 cached) | GC: 3.3ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-05-07 11:04:55 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (8, 9, 6, 7, 10) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVet Load (1.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (4, 3) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 26.4ms | GC: 0.9ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 22.3ms | GC: 21.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 52.2ms | GC: 22.0ms)
+Completed 200 OK in 58ms (Views: 51.6ms | ActiveRecord: 2.4ms (3 queries, 0 cached) | GC: 22.0ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 11:04:57 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (0.6ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (2.2ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:19
+  [1m[36mVet Load (1.8ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:20
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 8.3ms | GC: 5.7ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 6.7ms | GC: 5.2ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 54.4ms | GC: 26.6ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 2.6ms | GC: 2.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 60.4ms | GC: 28.7ms)
+Completed 200 OK in 116ms (Views: 57.5ms | ActiveRecord: 6.1ms (6 queries, 1 cached) | GC: 55.6ms)
+
+
+Started GET "/appointments/9/treatments/new" for 127.0.0.1 at 2026-05-07 11:05:01 -0400
+Processing by TreatmentsController#new as HTML
+  Parameters: {"appointment_id" => "9"}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='new',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered treatments/_form.html.erb (Duration: 6.4ms | GC: 3.0ms)
+  Rendered treatments/new.html.erb within layouts/application (Duration: 8.5ms | GC: 3.8ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.9ms | GC: 4.8ms)
+Completed 200 OK in 18ms (Views: 11.8ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 7.3ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-05-07 11:05:10 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mPet Load (1.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (8, 9, 6, 7, 10) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVet Load (1.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (4, 3) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 134.7ms | GC: 104.5ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 138.2ms | GC: 105.9ms)
+Completed 200 OK in 142ms (Views: 135.4ms | ActiveRecord: 3.6ms (3 queries, 0 cached) | GC: 105.9ms)
+
+
+Started GET "/Treatments" for 127.0.0.1 at 2026-05-07 11:05:13 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/Treatments"):
+  
+Started GET "/favicon.ico" for 127.0.0.1 at 2026-05-07 11:05:13 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/appointments/9/treatments/new" for 127.0.0.1 at 2026-05-07 11:06:15 -0400
+Processing by TreatmentsController#new as HTML
+  Parameters: {"appointment_id" => "9"}
+  [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='new',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered treatments/_form.html.erb (Duration: 4.8ms | GC: 0.0ms)
+  Rendered treatments/new.html.erb within layouts/application (Duration: 10.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 17.0ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6750264325171922940) /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6750264325171922940) /*application='Lab03SSapunar1'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO "$user", public /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[35mSET search_path TO public /*application='Lab03SSapunar1'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mSET search_path TO "$user", public /*application='Lab03SSapunar1'*/[0m
+Started GET "/" for 127.0.0.1 at 2026-05-07 11:09:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by OwnersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/index.html.erb within layouts/application
+  [1m[36mOwner Load (20.2ms)[0m  [1m[34mSELECT "owners".* FROM "owners" /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Load (0.6ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."owner_id" IN (4, 5, 6) /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:18
+  [1m[36mPet Count (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 4 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 5 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  [1m[36mPet Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "pets" WHERE "pets"."owner_id" = 6 /*action='index',application='Lab03SSapunar1',controller='owners'*/[0m
+  ↳ app/views/owners/index.html.erb:23
+  Rendered owners/index.html.erb within layouts/application (Duration: 91.5ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 111.8ms | GC: 0.0ms)
+Completed 200 OK in 151ms (Views: 75.9ms | ActiveRecord: 40.0ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/owners/new" for 127.0.0.1 at 2026-05-07 11:09:17 -0400
+Processing by OwnersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering owners/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered owners/_form.html.erb (Duration: 8.1ms | GC: 0.0ms)
+  Rendered owners/new.html.erb within layouts/application (Duration: 13.6ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.1ms | GC: 0.0ms)
+Completed 200 OK in 21ms (Views: 18.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-05-07 11:09:18 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mPet Load (0.5ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (8, 9, 6, 7, 10) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (4, 3) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 32.0ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | GC: 0.0ms)
+Completed 200 OK in 39ms (Views: 27.7ms | ActiveRecord: 6.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 11:09:20 -0400
+Processing by AppointmentsController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mAppointment Load (0.5ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (0.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.7ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (0.4ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:19
+  [1m[36mVet Load (0.4ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:20
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 2.3ms | GC: 0.9ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.5ms | GC: 0.0ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 18.7ms | GC: 1.9ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | GC: 1.9ms)
+Completed 200 OK in 88ms (Views: 19.8ms | ActiveRecord: 8.2ms (6 queries, 1 cached) | GC: 35.6ms)
+
+
+Started GET "/appointments/9/treatments/new" for 127.0.0.1 at 2026-05-07 11:09:22 -0400
+Processing by TreatmentsController#new as HTML
+  Parameters: {"appointment_id" => "9"}
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='new',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered treatments/_form.html.erb (Duration: 4.7ms | GC: 0.6ms)
+  Rendered treatments/new.html.erb within layouts/application (Duration: 8.2ms | GC: 0.6ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 9.4ms | GC: 0.6ms)
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/appointments/9/treatments/new" for 127.0.0.1 at 2026-05-07 11:10:27 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Lab03SSapunar1'*/[0m
+Processing by TreatmentsController#new as HTML
+  Parameters: {"appointment_id" => "9"}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='new',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered treatments/_form.html.erb (Duration: 33.2ms | GC: 0.0ms)
+  Rendered treatments/new.html.erb within layouts/application (Duration: 41.9ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 68.0ms | GC: 0.0ms)
+Completed 200 OK in 138ms (Views: 68.7ms | ActiveRecord: 28.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/rails/active_storage/direct_uploads" for 127.0.0.1 at 2026-05-07 11:11:01 -0400
+Processing by ActiveStorage::DirectUploadsController#create as JSON
+  Parameters: {"blob" => {"filename" => "tuntun.jpeg", "content_type" => "image/jpeg", "byte_size" => 8257, "checksum" => "x1xqXj9A34JTVOKeTp+32w=="}, "direct_upload" => {"blob" => {"filename" => "tuntun.jpeg", "content_type" => "image/jpeg", "byte_size" => 8257, "checksum" => "x1xqXj9A34JTVOKeTp+32w=="}}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*action='create',application='Lab03SSapunar1',controller='direct_uploads'*/[0m
+  [1m[36mActiveStorage::Blob Create (3.7ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (8257, 'x1xqXj9A34JTVOKeTp+32w==', 'image/jpeg', '2026-05-07 15:11:01.153059', 'tuntun.jpeg', 'ne0ivshoczazjrnyti1lbju58ulc', NULL, 'local') RETURNING "id" /*action='create',application='Lab03SSapunar1',controller='direct_uploads'*/[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT /*action='create',application='Lab03SSapunar1',controller='direct_uploads'*/[0m
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: ne0ivshoczazjrnyti1lbju58ulc (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJuZTBpdnNob2N6YXpqcm55dGkxbGJqdTU4dWxjIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsImNvbnRlbnRfbGVuZ3RoIjo4MjU3LCJjaGVja3N1bSI6IngxeHFYajlBMzRKVFZPS2VUcCszMnc9PSIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDUtMDdUMTU6MTY6MDEuMTY2WiIsInB1ciI6ImJsb2JfdG9rZW4ifX0=--dd0dac17ea05ee5f7e712b825dcd838a4aca16f1)[0m
+Completed 200 OK in 34ms (Views: 0.2ms | ActiveRecord: 9.0ms (1 query, 0 cached) | GC: 1.5ms)
+
+
+Started PUT "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJuZTBpdnNob2N6YXpqcm55dGkxbGJqdTU4dWxjIiwiY29udGVudF90eXBlIjoiaW1hZ2UvanBlZyIsImNvbnRlbnRfbGVuZ3RoIjo4MjU3LCJjaGVja3N1bSI6IngxeHFYajlBMzRKVFZPS2VUcCszMnc9PSIsInNlcnZpY2VfbmFtZSI6ImxvY2FsIn0sImV4cCI6IjIwMjYtMDUtMDdUMTU6MTY6MDEuMTY2WiIsInB1ciI6ImJsb2JfdG9rZW4ifX0=--dd0dac17ea05ee5f7e712b825dcd838a4aca16f1" for 127.0.0.1 at 2026-05-07 11:11:01 -0400
+Processing by ActiveStorage::DiskController#update as */*
+  Parameters: {"encoded_token" => "[FILTERED]"}
+[36m  Disk Storage (0.6ms) [0m[32mUploaded file to key: ne0ivshoczazjrnyti1lbju58ulc (checksum: x1xqXj9A34JTVOKeTp+32w==)[0m
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTAsInB1ciI6ImJsb2JfaWQifX0=--3b6a044df984c97f2748c7157ff1a02eb3676d3d/tuntun.jpeg" for 127.0.0.1 at 2026-05-07 11:11:01 -0400
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MTAsInB1ciI6ImJsb2JfaWQifX0=--3b6a044df984c97f2748c7157ff1a02eb3676d3d", "filename" => "tuntun"}
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (1.5ms) [0m[34mGenerated URL for file at key: ne0ivshoczazjrnyti1lbju58ulc (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJuZTBpdnNob2N6YXpqcm55dGkxbGJqdTU4dWxjIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwidHVudHVuLmpwZWdcIjsgZmlsZW5hbWUqPVVURi04Jyd0dW50dW4uanBlZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI2LTA1LTA3VDE1OjE2OjAxLjIwM1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e1ba614f01e7e1dbc9a6c68a0b81fb60b000774b/tuntun.jpeg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJuZTBpdnNob2N6YXpqcm55dGkxbGJqdTU4dWxjIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwidHVudHVuLmpwZWdcIjsgZmlsZW5hbWUqPVVURi04Jyd0dW50dW4uanBlZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI2LTA1LTA3VDE1OjE2OjAxLjIwM1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e1ba614f01e7e1dbc9a6c68a0b81fb60b000774b/tuntun.jpeg
+Completed 302 Found in 8ms (ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJuZTBpdnNob2N6YXpqcm55dGkxbGJqdTU4dWxjIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwidHVudHVuLmpwZWdcIjsgZmlsZW5hbWUqPVVURi04Jyd0dW50dW4uanBlZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI2LTA1LTA3VDE1OjE2OjAxLjIwM1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e1ba614f01e7e1dbc9a6c68a0b81fb60b000774b/tuntun.jpeg" for 127.0.0.1 at 2026-05-07 11:11:01 -0400
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "tuntun"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/appointments/9/treatments" for 127.0.0.1 at 2026-05-07 11:11:04 -0400
+Processing by TreatmentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "treatment" => {"name" => "", "medication" => "", "dosage" => "", "clinical_notes" => "<div><figure data-trix-attachment=\"{&quot;contentType&quot;:&quot;image/jpeg&quot;,&quot;filename&quot;:&quot;tuntun.jpeg&quot;,&quot;filesize&quot;:8257,&quot;height&quot;:259,&quot;sgid&quot;:&quot;eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL2xhYjAzLXMtc2FwdW5hcjEvQWN0aXZlU3RvcmFnZTo6QmxvYi8xMD9leHBpcmVzX2luIiwicHVyIjoiYXR0YWNoYWJsZSJ9fQ==--86a1a2bae99de14ae1f192fd9828e495c8ca8726&quot;,&quot;url&quot;:&quot;http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTAsInB1ciI6ImJsb2JfaWQifX0=--3b6a044df984c97f2748c7157ff1a02eb3676d3d/tuntun.jpeg&quot;,&quot;width&quot;:194}\" data-trix-content-type=\"image/jpeg\" data-trix-attributes=\"{&quot;presentation&quot;:&quot;gallery&quot;}\" class=\"attachment attachment--preview attachment--jpeg\"><img src=\"http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTAsInB1ciI6ImJsb2JfaWQifX0=--3b6a044df984c97f2748c7157ff1a02eb3676d3d/tuntun.jpeg\" width=\"194\" height=\"259\"><figcaption class=\"attachment__caption\"><span class=\"attachment__name\">tuntun.jpeg</span> <span class=\"attachment__size\">8.06 KB</span></figcaption></figure></div>", "administered_at" => ""}, "commit" => "Create Treatment", "appointment_id" => "9"}
+  [1m[36mAppointment Load (0.7ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mActiveStorage::Blob Load (5.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mCACHE ActiveStorage::Blob Load (0.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/new.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 1.1ms | GC: 0.0ms)
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/views/treatments/_form.html.erb:21
+  Rendered treatments/_form.html.erb (Duration: 9.6ms | GC: 0.0ms)
+  Rendered treatments/new.html.erb within layouts/application (Duration: 10.4ms | GC: 0.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 94ms (Views: 12.0ms | ActiveRecord: 9.3ms (4 queries, 1 cached) | GC: 7.1ms)
+
+
+Started POST "/appointments/9/treatments" for 127.0.0.1 at 2026-05-07 11:11:17 -0400
+Processing by TreatmentsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "treatment" => {"name" => "test", "medication" => "", "dosage" => "", "clinical_notes" => "<div><figure data-trix-attachment=\"{&quot;contentType&quot;:&quot;image/jpeg&quot;,&quot;filename&quot;:&quot;tuntun.jpeg&quot;,&quot;filesize&quot;:8257,&quot;height&quot;:259,&quot;previewable&quot;:true,&quot;sgid&quot;:&quot;eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL2xhYjAzLXMtc2FwdW5hcjEvQWN0aXZlU3RvcmFnZTo6QmxvYi8xMD9leHBpcmVzX2luIiwicHVyIjoiYXR0YWNoYWJsZSJ9fQ==--86a1a2bae99de14ae1f192fd9828e495c8ca8726&quot;,&quot;url&quot;:&quot;http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTAsInB1ciI6ImJsb2JfaWQifX0=--3b6a044df984c97f2748c7157ff1a02eb3676d3d/tuntun.jpeg&quot;,&quot;width&quot;:194}\" data-trix-content-type=\"image/jpeg\" data-trix-attributes=\"{&quot;presentation&quot;:&quot;gallery&quot;}\" class=\"attachment attachment--preview attachment--jpeg\"><img src=\"http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTAsInB1ciI6ImJsb2JfaWQifX0=--3b6a044df984c97f2748c7157ff1a02eb3676d3d/tuntun.jpeg\" width=\"194\" height=\"259\"><figcaption class=\"attachment__caption\"><span class=\"attachment__name\">tuntun.jpeg</span> <span class=\"attachment__size\">8.06 KB</span></figcaption></figure></div>", "administered_at" => "2026-05-27T11:11"}, "commit" => "Create Treatment", "appointment_id" => "9"}
+  [1m[36mAppointment Load (1.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mActiveStorage::Blob Load (5.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mTreatment Create (1.3ms)[0m  [1m[32mINSERT INTO "treatments" ("administered_at", "appointment_id", "created_at", "dosage", "medication", "name", "updated_at") VALUES ('2026-05-27 11:11:00', 9, '2026-05-07 15:11:17.140781', '', '', 'test', '2026-05-07 15:11:17.140781') RETURNING "id" /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mActionText::RichText Create (0.7ms)[0m  [1m[32mINSERT INTO "action_text_rich_texts" ("body", "created_at", "name", "record_id", "record_type", "updated_at") VALUES ('<div><action-text-attachment sgid="eyJfcmFpbHMiOnsiZGF0YSI6ImdpZDovL2xhYjAzLXMtc2FwdW5hcjEvQWN0aXZlU3RvcmFnZTo6QmxvYi8xMD9leHBpcmVzX2luIiwicHVyIjoiYXR0YWNoYWJsZSJ9fQ==--86a1a2bae99de14ae1f192fd9828e495c8ca8726" content-type="image/jpeg" url="http://127.0.0.1:3000/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTAsInB1ciI6ImJsb2JfaWQifX0=--3b6a044df984c97f2748c7157ff1a02eb3676d3d/tuntun.jpeg" filename="tuntun.jpeg" filesize="8257" width="194" height="259" previewable="true" presentation="gallery"></action-text-attachment></div>', '2026-05-07 15:11:17.145142', 'clinical_notes', 11, 'Treatment', '2026-05-07 15:11:17.145142') RETURNING "id" /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mCACHE ActiveStorage::Blob Load (0.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mActiveStorage::Blob Update (1.9ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true}' WHERE "active_storage_blobs"."id" = 10 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 10 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mActiveStorage::Attachment Create (1.9ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (10, '2026-05-07 15:11:17.203099', 'embeds', 11, 'ActionText::RichText') RETURNING "id" /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mTreatment Update (1.0ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 15:11:17.212837' WHERE "treatments"."id" = 11 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mActionText::RichText Update (0.8ms)[0m  [1m[33mUPDATE "action_text_rich_texts" SET "updated_at" = '2026-05-07 15:11:17.212039' WHERE "action_text_rich_texts"."id" = 11 /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+  [1m[36mTRANSACTION (3.0ms)[0m  [1m[35mCOMMIT /*action='create',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 44911c2e-6b88-4945-977c-8b022c8be781) to Async(default) with arguments: #<GlobalID:0x0000720a5a4dc3b8 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/10>>
+[ActiveJob] ↳ app/controllers/treatments_controller.rb:11:in 'TreatmentsController#create'
+Redirected to http://127.0.0.1:3000/appointments/9
+↳ app/controllers/treatments_controller.rb:12:in 'TreatmentsController#create'
+Completed 302 Found in 175ms (ActiveRecord: 20.2ms (12 queries, 2 cached) | GC: 0.0ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781]   [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781] Performing ActiveStorage::AnalyzeJob (Job ID: 44911c2e-6b88-4945-977c-8b022c8be781) from Async(default) enqueued at 2026-05-07T15:11:17.269805893Z with arguments: #<GlobalID:0x0000720a5a37ec00 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/10>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781] [36m  Disk Storage (15.7ms) [0m[34mDownloaded file from key: ne0ivshoczazjrnyti1lbju58ulc[0m
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 11:11:17 -0400
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781]   [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781]   [1m[36mActiveStorage::Blob Update (16.6ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"width":194,"height":259,"analyzed":true}' WHERE "active_storage_blobs"."id" = 10 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781]   [1m[36mActiveStorage::Attachment Load (0.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 10 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781]   [1m[36mActionText::RichText Load (0.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = 11 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Processing by AppointmentsController#show as TURBO_STREAM
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781]   [1m[36mTreatment Load (3.7ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."id" = 11 LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  Parameters: {"id" => "9"}
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781]   [1m[36mActionText::RichText Update (0.7ms)[0m  [1m[33mUPDATE "action_text_rich_texts" SET "updated_at" = '2026-05-07 15:11:17.379809' WHERE "action_text_rich_texts"."id" = 11 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781]   [1m[36mTreatment Update (0.5ms)[0m  [1m[33mUPDATE "treatments" SET "updated_at" = '2026-05-07 15:11:17.436004' WHERE "treatments"."id" = 11 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781]   [1m[36mTRANSACTION (10.9ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [44911c2e-6b88-4945-977c-8b022c8be781] Performed ActiveStorage::AnalyzeJob (Job ID: 44911c2e-6b88-4945-977c-8b022c8be781) from Async(default) in 167.52ms
+  [1m[36mAppointment Load (13.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mTreatment Load (0.5ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  [1m[36mActionText::RichText Load (0.8ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9, 11) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:19
+  [1m[36mVet Load (0.6ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:20
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 1.9ms | GC: 0.5ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | GC: 0.0ms)
+  [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:56
+  Rendered active_storage/blobs/_blob.html.erb (Duration: 9.7ms | GC: 0.3ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 17.1ms | GC: 0.3ms)
+  Rendered appointments/show.html.erb within layouts/application (Duration: 60.0ms | GC: 3.3ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 61.6ms | GC: 3.5ms)
+Completed 200 OK in 91ms (Views: 53.7ms | ActiveRecord: 30.9ms (7 queries, 1 cached) | GC: 5.3ms)
+
+
+Started GET "/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MTAsInB1ciI6ImJsb2JfaWQifX0=--3b6a044df984c97f2748c7157ff1a02eb3676d3d/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGVnIiwicmVzaXplX3RvX2xpbWl0IjpbMTAyNCw3NjhdfSwicHVyIjoidmFyaWF0aW9uIn19--0fd1e94e0470178367b176e68d18c9d04980f437/tuntun.jpeg" for 127.0.0.1 at 2026-05-07 11:11:17 -0400
+Processing by ActiveStorage::Representations::RedirectController#show as JPEG
+  Parameters: {"signed_blob_id" => "eyJfcmFpbHMiOnsiZGF0YSI6MTAsInB1ciI6ImJsb2JfaWQifX0=--3b6a044df984c97f2748c7157ff1a02eb3676d3d", "variation_key" => "[FILTERED]", "filename" => "tuntun"}
+  [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Load (0.5ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 10 AND "active_storage_variant_records"."variation_digest" = 'W5beMOUItX5imtE3xaUe79gjUbU=' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (4.8ms) [0m[34mDownloaded file from key: ne0ivshoczazjrnyti1lbju58ulc[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::VariantRecord Create (3.5ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("blob_id", "variation_digest") VALUES (10, 'W5beMOUItX5imtE3xaUe79gjUbU=') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Blob Load (1.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" INNER JOIN "active_storage_attachments" ON "active_storage_blobs"."id" = "active_storage_attachments"."blob_id" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'ActiveStorage::VariantRecord' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'ActiveStorage::VariantRecord' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Blob Create (0.7ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("byte_size", "checksum", "content_type", "created_at", "filename", "key", "metadata", "service_name") VALUES (11294, 'Lnk4gf0Xg3Ofwjmru8k4CQ==', 'image/jpeg', '2026-05-07 15:11:17.652991', 'tuntun.jpeg', 'pj870479r5zlkm2ptugoepcddy7y', '{"identified":true}', 'local') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mActiveStorage::Attachment Create (0.7ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("blob_id", "created_at", "name", "record_id", "record_type") VALUES (11, '2026-05-07 15:11:17.657480', 'image', 4, 'ActiveStorage::VariantRecord') RETURNING "id" /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT /*action='show',application='Lab03SSapunar1',controller='redirect'*/[0m
+[36m  Disk Storage (0.5ms) [0m[32mUploaded file to key: pj870479r5zlkm2ptugoepcddy7y (checksum: Lnk4gf0Xg3Ofwjmru8k4CQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7) to Async(default) with arguments: #<GlobalID:0x0000720a5a9c84a8 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/11>>
+[36m  Disk Storage (0.9ms) [0m[34mGenerated URL for file at key: pj870479r5zlkm2ptugoepcddy7y (http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJwajg3MDQ3OXI1emxrbTJwdHVnb2VwY2RkeTd5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwidHVudHVuLmpwZWdcIjsgZmlsZW5hbWUqPVVURi04Jyd0dW50dW4uanBlZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI2LTA1LTA3VDE1OjE2OjE3LjY3MFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--50a732edb68d13fde33f558934743133b1446724/tuntun.jpeg)[0m
+Redirected to http://127.0.0.1:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJwajg3MDQ3OXI1emxrbTJwdHVnb2VwY2RkeTd5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwidHVudHVuLmpwZWdcIjsgZmlsZW5hbWUqPVVURi04Jyd0dW50dW4uanBlZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI2LTA1LTA3VDE1OjE2OjE3LjY3MFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--50a732edb68d13fde33f558934743133b1446724/tuntun.jpeg
+Completed 302 Found in 108ms (ActiveRecord: 12.0ms (7 queries, 0 cached) | GC: 28.7ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7]   [1m[36mActiveStorage::Blob Load (0.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 11 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7] Performing ActiveStorage::AnalyzeJob (Job ID: a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7) from Async(default) enqueued at 2026-05-07T15:11:17.667584798Z with arguments: #<GlobalID:0x0000720a5a9f8fb8 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/11>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7] [36m  Disk Storage (4.8ms) [0m[34mDownloaded file from key: pj870479r5zlkm2ptugoepcddy7y[0m
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJwajg3MDQ3OXI1emxrbTJwdHVnb2VwY2RkeTd5IiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwidHVudHVuLmpwZWdcIjsgZmlsZW5hbWUqPVVURi04Jyd0dW50dW4uanBlZyIsImNvbnRlbnRfdHlwZSI6ImltYWdlL2pwZWciLCJzZXJ2aWNlX25hbWUiOiJsb2NhbCJ9LCJleHAiOiIyMDI2LTA1LTA3VDE1OjE2OjE3LjY3MFoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--50a732edb68d13fde33f558934743133b1446724/tuntun.jpeg" for 127.0.0.1 at 2026-05-07 11:11:17 -0400
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7]   [1m[36mActiveStorage::Blob Update (2.4ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = '{"identified":true,"width":194,"height":259,"analyzed":true}' WHERE "active_storage_blobs"."id" = 11 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 11 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+Processing by ActiveStorage::DiskController#show as JPEG
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7]   [1m[36mActiveStorage::VariantRecord Load (1.2ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."id" = 4 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+  Parameters: {"encoded_key" => "[FILTERED]", "filename" => "tuntun"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7]   [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3AAnalyzeJob'*/[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7] Performed ActiveStorage::AnalyzeJob (Job ID: a8f68d55-e5a2-4ecc-8d63-4dcf4df29ad7) from Async(default) in 27.72ms
+Started DELETE "/appointments/9/treatments/11" for 127.0.0.1 at 2026-05-07 11:11:28 -0400
+Processing by TreatmentsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "appointment_id" => "9", "id" => "11"}
+  [1m[36mAppointment Load (2.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  [1m[36mTreatment Load (1.6ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 AND "treatments"."id" = 11 LIMIT 1 /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:40:in 'TreatmentsController#set_treatment'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mBEGIN /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:29:in 'TreatmentsController#destroy'
+  [1m[36mActionText::RichText Load (6.6ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 11 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:29:in 'TreatmentsController#destroy'
+  [1m[36mActiveStorage::Attachment Load (2.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'ActionText::RichText' AND "active_storage_attachments"."name" = 'embeds' /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:29:in 'TreatmentsController#destroy'
+  [1m[36mActiveStorage::Attachment Destroy (1.7ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = 10 /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:29:in 'TreatmentsController#destroy'
+  [1m[36mActionText::RichText Destroy (2.7ms)[0m  [1m[31mDELETE FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."id" = 11 /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:29:in 'TreatmentsController#destroy'
+  [1m[36mTreatment Destroy (0.6ms)[0m  [1m[31mDELETE FROM "treatments" WHERE "treatments"."id" = 11 /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:29:in 'TreatmentsController#destroy'
+  [1m[36mTRANSACTION (11.3ms)[0m  [1m[35mCOMMIT /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:29:in 'TreatmentsController#destroy'
+  [1m[36mActiveStorage::Blob Load (3.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*action='destroy',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:29:in 'TreatmentsController#destroy'
+[ActiveJob] Enqueued ActiveStorage::PurgeJob (Job ID: 060d6440-0aed-4018-8679-8b7c7926dd80) to Async(default) with arguments: #<GlobalID:0x0000720a5ac8ffb0 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/10>>
+[ActiveJob] ↳ app/controllers/treatments_controller.rb:29:in 'TreatmentsController#destroy'
+Redirected to http://127.0.0.1:3000/appointments/9
+↳ app/controllers/treatments_controller.rb:30:in 'TreatmentsController#destroy'
+Completed 302 Found in 108ms (ActiveRecord: 33.8ms (8 queries, 0 cached) | GC: 0.0ms)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mActiveStorage::Blob Load (0.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80] Performing ActiveStorage::PurgeJob (Job ID: 060d6440-0aed-4018-8679-8b7c7926dd80) from Async(default) enqueued at 2026-05-07T15:11:28.980886877Z with arguments: #<GlobalID:0x0000720a5acea5a0 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/10>>
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+Started GET "/appointments/9" for 127.0.0.1 at 2026-05-07 11:11:29 -0400
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mActiveStorage::Attachment Exists? (3.2ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 10 LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mActiveStorage::VariantRecord Load (0.5ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 10 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 4 AND "active_storage_attachments"."record_type" = 'ActiveStorage::VariantRecord' AND "active_storage_attachments"."name" = 'image' LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mActiveStorage::Attachment Destroy (0.4ms)[0m  [1m[31mDELETE FROM "active_storage_attachments" WHERE "active_storage_attachments"."id" = 11 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mActiveStorage::VariantRecord Destroy (0.5ms)[0m  [1m[31mDELETE FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."id" = 4 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+Processing by AppointmentsController#show as TURBO_STREAM
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 10 AND "active_storage_attachments"."record_type" = 'ActiveStorage::Blob' AND "active_storage_attachments"."name" = 'preview_image' LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  Parameters: {"id" => "9"}
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mActiveStorage::Blob Destroy (1.4ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 10 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:43:in 'AppointmentsController#set_appointment'
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  [1m[36mTreatment Load (2.8ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80]   [1m[36mActiveStorage::Blob Load (1.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 11 LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80] Enqueued ActiveStorage::PurgeJob (Job ID: ab2f28f4-89ed-4ec4-8361-03452fca6300) to Async(default) with arguments: #<GlobalID:0x0000720a6331b318 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/11>>
+  [1m[36mActionText::RichText Load (25.1ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' AND "action_text_rich_texts"."record_id" IN (7, 9) /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80] [36m  Disk Storage (0.2ms) [0m[31mDeleted file from key: ne0ivshoczazjrnyti1lbju58ulc[0m
+  ↳ app/controllers/appointments_controller.rb:9:in 'AppointmentsController#show'
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80] [36m  Disk Storage (0.1ms) [0m[31mDeleted files by key prefix: variants/ne0ivshoczazjrnyti1lbju58ulc/[0m
+  Rendering layout layouts/application.html.erb
+[ActiveJob] [ActiveStorage::PurgeJob] [060d6440-0aed-4018-8679-8b7c7926dd80] Performed ActiveStorage::PurgeJob (Job ID: 060d6440-0aed-4018-8679-8b7c7926dd80) from Async(default) in 75.11ms
+  Rendering appointments/show.html.erb within layouts/application
+  [1m[36mPet Load (0.8ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/show.html.erb:19
+  [1m[36mVet Load (1.8ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='appointments'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300]   [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 11 LIMIT 1 /*application='Lab03SSapunar1'*/[0m
+  ↳ app/views/appointments/show.html.erb:20
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300] Performing ActiveStorage::PurgeJob (Job ID: ab2f28f4-89ed-4ec4-8361-03452fca6300) from Async(default) enqueued at 2026-05-07T15:11:29.063387252Z with arguments: #<GlobalID:0x0000720a5b883ee8 @uri=#<URI::GID gid://lab03-s-sapunar1/ActiveStorage::Blob/11>>
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /home/simon/.rbenv/versions/4.0.2/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3/app/views/action_text/contents/_content.html.erb within layouts/action_text/contents/_content (Duration: 0.7ms | GC: 0.0ms)
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300]   [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mBEGIN /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  Rendered appointments/show.html.erb within layouts/application (Duration: 21.5ms | GC: 1.1ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300]   [1m[36mActiveStorage::Attachment Exists? (7.9ms)[0m  [1m[34mSELECT 1 AS one FROM "active_storage_attachments" WHERE "active_storage_attachments"."blob_id" = 11 LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.9ms | GC: 1.7ms)
+Completed 200 OK in 71ms (Views: 28.0ms | ActiveRecord: 30.8ms (6 queries, 1 cached) | GC: 22.4ms)
+
+
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300]   [1m[36mActiveStorage::VariantRecord Load (1.9ms)[0m  [1m[34mSELECT "active_storage_variant_records".* FROM "active_storage_variant_records" WHERE "active_storage_variant_records"."blob_id" = 11 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300]   [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 11 AND "active_storage_attachments"."record_type" = 'ActiveStorage::Blob' AND "active_storage_attachments"."name" = 'preview_image' LIMIT 1 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300]   [1m[36mActiveStorage::Blob Destroy (0.5ms)[0m  [1m[31mDELETE FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = 11 /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300]   [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT /*application='Lab03SSapunar1',job='ActiveStorage%3A%3APurgeJob'*/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300] [36m  Disk Storage (0.1ms) [0m[31mDeleted file from key: pj870479r5zlkm2ptugoepcddy7y[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300] [36m  Disk Storage (0.0ms) [0m[31mDeleted files by key prefix: variants/pj870479r5zlkm2ptugoepcddy7y/[0m
+[ActiveJob] [ActiveStorage::PurgeJob] [ab2f28f4-89ed-4ec4-8361-03452fca6300] Performed ActiveStorage::PurgeJob (Job ID: ab2f28f4-89ed-4ec4-8361-03452fca6300) from Async(default) in 34.66ms
+Started GET "/appointments/9/treatments/7/edit" for 127.0.0.1 at 2026-05-07 11:11:36 -0400
+Processing by TreatmentsController#edit as HTML
+  Parameters: {"appointment_id" => "9", "id" => "7"}
+  [1m[36mAppointment Load (1.1ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."id" = 9 LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:36:in 'TreatmentsController#set_appointment'
+  [1m[36mTreatment Load (1.2ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" = 9 AND "treatments"."id" = 7 LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/controllers/treatments_controller.rb:40:in 'TreatmentsController#set_treatment'
+  Rendering layout layouts/application.html.erb
+  Rendering treatments/edit.html.erb within layouts/application
+  Rendered shared/_error_messages.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mActionText::RichText Load (0.9ms)[0m  [1m[34mSELECT "action_text_rich_texts".* FROM "action_text_rich_texts" WHERE "action_text_rich_texts"."record_id" = 7 AND "action_text_rich_texts"."record_type" = 'Treatment' AND "action_text_rich_texts"."name" = 'clinical_notes' LIMIT 1 /*action='edit',application='Lab03SSapunar1',controller='treatments'*/[0m
+  ↳ app/views/treatments/_form.html.erb:21
+  Rendered treatments/_form.html.erb (Duration: 17.0ms | GC: 2.0ms)
+  Rendered treatments/edit.html.erb within layouts/application (Duration: 22.7ms | GC: 2.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.2ms | GC: 2.0ms)
+Completed 200 OK in 45ms (Views: 28.0ms | ActiveRecord: 3.1ms (3 queries, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/appointments" for 127.0.0.1 at 2026-05-07 11:11:55 -0400
+Processing by AppointmentsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering appointments/index.html.erb within layouts/application
+  [1m[36mAppointment Load (1.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" IN (8, 9, 6, 7, 10) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  [1m[36mVet Load (0.5ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" IN (4, 3) /*action='index',application='Lab03SSapunar1',controller='appointments'*/[0m
+  ↳ app/views/appointments/index.html.erb:19
+  Rendered appointments/index.html.erb within layouts/application (Duration: 22.5ms | GC: 0.8ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | GC: 0.8ms)
+Completed 200 OK in 27ms (Views: 23.1ms | ActiveRecord: 2.1ms (3 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/pets/8" for 127.0.0.1 at 2026-05-07 11:11:57 -0400
+Processing by PetsController#show as HTML
+  Parameters: {"id" => "8"}
+  [1m[36mPet Load (0.7ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:45:in 'PetsController#set_pet'
+  [1m[36mCACHE Pet Load (0.0ms)[0m  [1m[34mSELECT "pets".* FROM "pets" WHERE "pets"."id" = 8 LIMIT 1[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mAppointment Load (0.6ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mVet Load (0.7ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  [1m[36mTreatment Load (0.4ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16) /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/controllers/pets_controller.rb:11:in 'PetsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering pets/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = 8 AND "active_storage_attachments"."record_type" = 'Pet' AND "active_storage_attachments"."name" = 'photo' LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:12
+  [1m[36mOwner Load (0.4ms)[0m  [1m[34mSELECT "owners".* FROM "owners" WHERE "owners"."id" = 5 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:25
+  [1m[36mAppointment Load (0.9ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date > '2026-05-07') ORDER BY "appointments"."date" ASC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:38
+  [1m[36mVet Load (0.3ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1 /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:41
+  [1m[36mAppointment Load (0.4ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8 AND (date < '2026-05-07') ORDER BY "appointments"."date" DESC /*action='show',application='Lab03SSapunar1',controller='pets'*/[0m
+  ↳ app/views/pets/show.html.erb:60
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Vet Load (0.0ms)[0m  [1m[34mSELECT "vets".* FROM "vets" WHERE "vets"."id" = 4 LIMIT 1[0m
+  ↳ app/views/pets/show.html.erb:63
+  [1m[36mCACHE Appointment Load (0.0ms)[0m  [1m[34mSELECT "appointments".* FROM "appointments" WHERE "appointments"."pet_id" = 8[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  [1m[36mCACHE Treatment Load (0.0ms)[0m  [1m[34mSELECT "treatments".* FROM "treatments" WHERE "treatments"."appointment_id" IN (9, 14, 16)[0m
+  ↳ app/views/pets/show.html.erb:82:in 'Enumerable#flat_map'
+  Rendered pets/show.html.erb within layouts/application (Duration: 39.8ms | GC: 1.0ms)
+  Rendered layouts/_flash.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 41.7ms | GC: 1.3ms)
+Completed 200 OK in 65ms (Views: 37.2ms | ActiveRecord: 8.0ms (14 queries, 5 cached) | GC: 1.8ms)
+
+
