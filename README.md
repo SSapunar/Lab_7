@@ -1,5 +1,4 @@
-# Lab 7 — VetClinic: Action Text & Active Storage
-
+# Lab 7
 ## Setup
 
 ```bash
