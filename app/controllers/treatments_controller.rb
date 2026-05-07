@@ -40,8 +40,7 @@ class TreatmentsController < ApplicationController
     @treatment = @appointment.treatments.find(params[:id])
   end
   def treatment_params
-    params.require(:treatment).permit(:name, :medication, :dosage, :notes, :administered_at)
-  end 
-
+    params.require(:treatment).permit(:name, :medication, :dosage, :clinical_notes, :administered_at)
+  end
 
 end

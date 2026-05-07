@@ -1,32 +1,45 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
-  <h1>Appointments</h1>
-  <%= link_to "New Appointment", new_appointment_path, class: "btn btn-primary" %>
+  <h1>Appointment Details</h1>
+  <div>
+    <%= link_to "Edit", edit_appointment_path(@appointment), class: "btn btn-warning me-1" %>
+    <%= button_to "Delete", @appointment, method: :delete, class: "btn btn-danger", data: { turbo_confirm: "Are you sure?" } %>
+  </div>
 </div>
 
-<table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Pet</th>
-      <th>Vet</th>
-      <th>Reason</th>
-      <th>Status</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @appointments.each do |appointment| %>
-      <tr>
-        <td><%= link_to appointment.date.strftime("%B %d, %Y"), appointment %></td>
-        <td><%= link_to appointment.pet.name, appointment.pet %></td>
-        <td><%= link_to "#{appointment.vet.first_name} #{appointment.vet.last_name}", appointment.vet %></td>
-        <td><%= appointment.reason %></td>
-        <td><%= appointment.status %></td>
-        <td>
-          <%= link_to "Edit", edit_appointment_path(appointment), class: "btn btn-sm btn-warning me-1" %>
-          <%= button_to "Delete", appointment, method: :delete, class: "btn btn-sm btn-danger", data: { turbo_confirm: "Are you sure?" } %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<p><strong>Date:</strong> <%= @appointment.date.strftime("%B %d, %Y") %></p>
+<p><strong>Reason:</strong> <%= @appointment.reason %></p>
+<p><strong>Status:</strong> <%= @appointment.status %></p>
+<p><strong>Pet:</strong> <%= link_to @appointment.pet.name, @appointment.pet %></p>
+<p><strong>Vet:</strong> <%= link_to "#{@appointment.vet.first_name} #{@appointment.vet.last_name}", @appointment.vet %></p>
+
+<div class="d-flex justify-content-between align-items-center mt-4 mb-2">
+  <h2>Treatments</h2>
+  <%= link_to "New Treatment", new_appointment_treatment_path(@appointment), class: "btn btn-primary btn-sm" %>
+</div>
+
+<% if @appointment.treatments.any? %>
+  <% @appointment.treatments.each do |treatment| %>
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title"><%= treatment.name %></h5>
+        <p><strong>Medication:</strong> <%= treatment.medication %></p>
+        <p><strong>Dosage:</strong> <%= treatment.dosage %></p>
+        <p><strong>Administered At:</strong> <%= treatment.administered_at %></p>
+        <% if treatment.clinical_notes.present? %>
+          <div>
+            <strong>Clinical Notes:</strong>
+            <%= treatment.clinical_notes %>
+          </div>
+        <% end %>
+        <div class="mt-2">
+          <%= link_to "Edit", edit_appointment_treatment_path(@appointment, treatment), class: "btn btn-sm btn-warning me-1" %>
+          <%= button_to "Delete", appointment_treatment_path(@appointment, treatment), method: :delete, class: "btn btn-sm btn-danger", data: { turbo_confirm: "Are you sure?" } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <p class="text-muted">No treatments for this appointment.</p>
+<% end %>
+
+<%= link_to "Back", appointments_path, class: "btn btn-secondary" %>
