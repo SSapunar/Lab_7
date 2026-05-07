@@ -30,4 +30,13 @@
   <%= form.collection_select :owner_id, Owner.order(:last_name), :id, :last_name, { include_blank: "Select owner" }, class: "form-select" %>
 </div>
 
+<div class="mb-3">
+  <% if pet.persisted? && pet.photo.attached? %>
+    <p class="form-label fw-bold">Current photo</p>
+    <%= image_tag pet.photo, style: "width: 100px; border-radius: 6px;" %>
+  <% end %>
+  <%= form.label :photo, class: "form-label" %>
+  <%= form.file_field :photo, class: "form-control" %>
+</div>
+
 <%= form.submit class: "btn btn-primary" %>

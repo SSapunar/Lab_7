@@ -32,3 +32,19 @@ Treatment.create!(appointment: appt1, name: "Pain Relief", medication: "Ibuprofe
 Treatment.create!(appointment: appt2, name: "Surgery", medication: "Anesthesia", dosage: "Standard", notes: "Done", administered_at: Time.current)
 Treatment.create!(appointment: appt1, name: "Bandage", medication: "None", dosage: "-", notes: "Applied", administered_at: Time.current)
 Treatment.create!(appointment: appt4, name: "Follow-up", medication: "None", dosage: "-", notes: "Check later", administered_at: Time.current)
+
+pet1.photo.attach(
+  io: File.open(Rails.root.join("db/seeds/pets/rick.jpg")),
+  filename: "firulais.jpg",
+  content_type: "image/jpeg"
+)
+pet2.photo.attach(
+  io: File.open(Rails.root.join("db/seeds/pets/slime.jpg")),
+  filename: "michi.jpg",
+  content_type: "image/jpeg"
+)
+pet4.photo.attach(
+  io: File.open(Rails.root.join("db/seeds/pets/tuntun.jpg")),
+  filename: "rocky.jpg",
+  content_type: "image/jpeg"
+)

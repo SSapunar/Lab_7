@@ -6,6 +6,17 @@
   </div>
 </div>
 
+<%# A.6 — foto %>
+<div class="mb-3">
+  <% if @pet.photo.attached? %>
+    <%= image_tag @pet.photo, class: "img-fluid rounded", style: "max-width: 300px;" %>
+  <% else %>
+    <div class="p-3 bg-light rounded text-muted text-center" style="width: 300px;">
+      No photo available
+    </div>
+  <% end %>
+</div>
+
 <p><strong>Species:</strong> <%= @pet.species %></p>
 <p><strong>Breed:</strong> <%= @pet.breed %></p>
 <p><strong>Date of Birth:</strong> <%= @pet.date_of_birth.strftime("%B %d, %Y") %></p>
