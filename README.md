@@ -1,5 +1,4 @@
 # Lab 7
-## Setup
 
 ```bash
 bundle install
